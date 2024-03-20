@@ -28,7 +28,7 @@ public class SecurityUser implements UserDetails{
         }
         
         return authorities;
-    }
+    }    
 
     @Override
     public String getPassword() {
@@ -37,7 +37,7 @@ public class SecurityUser implements UserDetails{
 
     @Override
     public String getUsername() {
-        return user.getUser_email();
+        return user.getUserEmail();
     }
 
     @Override
