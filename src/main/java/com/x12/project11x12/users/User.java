@@ -26,6 +26,9 @@ public class User {
     
     @Column
     private String password;
+
+    @Column(name = "username") 
+    private String username; 
     
     @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(
@@ -42,7 +45,15 @@ public class User {
         this.id = id;
         this.userEmail = userEmail;
         this.password = password;
-        this.roles = roles;
+        this.roles = roles;    
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    public String getUsername() {
+        return username;
     }
     
     public Long getId() {
