@@ -22,35 +22,19 @@ public class ScholarshipController {
     }
 
     @GetMapping(path = "")
-    public List<Scholarship> index(){
+    public List<Scholarship> index() {
         List<Scholarship> scholarships = service.getAll();
         return scholarships;
     }
 
-    // @PostMapping(path = "")
-    // public ResponseEntity<Scholarship> create(@RequestBody Scholarship scholarship) {
-    //     Scholarship newScholarship = service.save(scholarship);
-    //     return ResponseEntity.status(201).body(newScholarship);
-
-    // }
-    
-    // @PostMapping(path = "")
-    // public ResponseEntity<Scholarship> create(@NonNull @RequestBody Scholarship scholarships) {
-    //     Scholarship newScholarship = service.save(scholarships);
-    //     return ResponseEntity.status(201).body(newScholarship);
-
-    // }
-
     @PostMapping(path = "")
-public ResponseEntity<Scholarship> create(@RequestBody Scholarship scholarship) {
-    if (scholarship == null) {
-        return ResponseEntity.badRequest().build();
+    public ResponseEntity<Scholarship> create(@RequestBody Scholarship scholarship) {
+        if (scholarship == null) {
+            return ResponseEntity.badRequest().build();
+        }
+
+        Scholarship newScholarship = service.save(scholarship);
+        return ResponseEntity.status(201).body(newScholarship);
     }
-    
-    Scholarship newScholarship = service.save(scholarship);
-    return ResponseEntity.status(201).body(newScholarship);
-}
 
-
-   
 }
