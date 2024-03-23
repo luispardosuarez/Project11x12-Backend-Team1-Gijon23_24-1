@@ -34,6 +34,7 @@ public class SecurityConfiguration {
                 .authorizeHttpRequests(auth -> auth
                         .requestMatchers(HttpMethod.GET, endpoint + "/login").permitAll()
                         .requestMatchers(HttpMethod.GET, endpoint + "/scholarship").permitAll()
+                        .requestMatchers(HttpMethod.POST, endpoint + "/scholarship").permitAll()
                         .anyRequest().authenticated())
                 .httpBasic(Customizer.withDefaults())
                 .sessionManagement(session -> session
