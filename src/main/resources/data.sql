@@ -5,3 +5,6 @@ INSERT INTO users (id_user, user_email, password) VALUES (1, 'admin@gijon11x12.c
 
 INSERT roles_users (role_id, user_id) VALUES (1, 1);
 
+-- Scholarship
+
+INSERT INTO scholarships (id_scholarship, dni) VALUES (default, '10000000X');
