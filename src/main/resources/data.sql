@@ -13,4 +13,4 @@ INSERT INTO scholarships (id_scholarship, dni) VALUES (default, '10000000X');
 INSERT INTO profiles (id, dni, profile_name, profile_surname, tlf1, tlf2) VALUES (1, '12345678A', 'Juan', 'Perez', '912345678', '987654321');
 
 -- Camps
-INSERT INTO camps (id, camp_name, start_date, end_date, schedule, description, img, numdays) VALUES (1, 'Campamento de Navidad', '2024-12-22', '2025-01-09', 'horario', 'campamento de Nadidad', 'imagen', 'tipo de semana');
+INSERT INTO camps (id, camp_name, start_date, end_date, schedule, description, img, numdays) VALUES (1, 'Campamento de Navidad', '2024-12-22', '2025-01-09', 'horario', 'campamento de Navidad', 'imagen', '5');
