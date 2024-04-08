@@ -10,11 +10,12 @@ import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.web.cors.CorsConfiguration;
 import org.springframework.web.cors.CorsConfigurationSource;
 import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
+
+import com.x12.project11x12.security.JpaUserDetailsService;
 
 @Configuration
 @EnableWebSecurity
@@ -22,6 +23,13 @@ public class SecurityConfiguration {
 
     @Value("${api-endpoint}")
     String endpoint;
+
+    JpaUserDetailsService jpaUserDetailsService;
+
+    public SecurityConfiguration(JpaUserDetailsService jpaUserDetailsService) {
+            this.jpaUserDetailsService = jpaUserDetailsService;
+    }
+
 
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
@@ -34,14 +42,14 @@ public class SecurityConfiguration {
                         .logoutUrl(endpoint + "/logout")
                         .deleteCookies("JSESSIONID"))
                 .authorizeHttpRequests(auth -> auth
-                        .requestMatchers(HttpMethod.GET, endpoint + "/login").permitAll()                        
-                        .requestMatchers(HttpMethod.POST, endpoint + "/register").permitAll()                        
-                        .requestMatchers(HttpMethod.GET, endpoint + "/login").permitAll()
+                        .requestMatchers(HttpMethod.GET, endpoint + "/login").hasAnyRole("USER","ADMIN") 
+                        .requestMatchers(HttpMethod.POST, endpoint + "/register").permitAll()    
                         .requestMatchers(HttpMethod.GET, endpoint + "/scholarship").permitAll()
                         .requestMatchers(HttpMethod.POST, endpoint + "/scholarship").permitAll()
                         .requestMatchers(HttpMethod.GET, endpoint + "/profile").permitAll()
                         .requestMatchers(HttpMethod.POST, endpoint + "/profile").permitAll()
-                        .anyRequest().authenticated())
+                        .anyRequest().authenticated())                
+                .userDetailsService(jpaUserDetailsService)
                 .httpBasic(Customizer.withDefaults())
                 .sessionManagement(session -> session
                         .sessionCreationPolicy(SessionCreationPolicy.IF_REQUIRED));
@@ -63,8 +71,7 @@ public class SecurityConfiguration {
     }
     
     @Bean
-    PasswordEncoder passwordEncoder() {
+    public BCryptPasswordEncoder passwordEncoder() {
         return new BCryptPasswordEncoder();
     }
-
 }
