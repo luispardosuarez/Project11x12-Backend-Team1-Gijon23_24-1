@@ -42,8 +42,7 @@ public class SecurityConfiguration {
                         .logoutUrl(endpoint + "/logout")
                         .deleteCookies("JSESSIONID"))
                 .authorizeHttpRequests(auth -> auth
-                        .requestMatchers(HttpMethod.GET, endpoint + "/login").hasAnyRole("USER","ADMIN")  
-                        .requestMatchers(HttpMethod.GET, endpoint + "/login").permitAll() 
+                        .requestMatchers(HttpMethod.GET, endpoint + "/login").hasAnyRole("USER","ADMIN") 
                         .requestMatchers(HttpMethod.POST, endpoint + "/register").permitAll()    
                         .requestMatchers(HttpMethod.GET, endpoint + "/scholarship").permitAll()
                         .requestMatchers(HttpMethod.POST, endpoint + "/scholarship").permitAll()
@@ -71,11 +70,6 @@ public class SecurityConfiguration {
         return source;
     }
     
-/*     @Bean
-    PasswordEncoder passwordEncoder() {
-        return new BCryptPasswordEncoder();
-    } */
-
     @Bean
     public BCryptPasswordEncoder passwordEncoder() {
         return new BCryptPasswordEncoder();

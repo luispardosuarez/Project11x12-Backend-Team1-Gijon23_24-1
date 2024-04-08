@@ -29,9 +29,13 @@ public class RegisterService {
         User user = new User();
         user.setUsername(registerDTO.getUsername());
 
-        String passwordBase64 = encoderFacade.encode("base64", registerDTO.getPassword());
+        //String passwordBase64 = encoderFacade.encode("base64", registerDTO.getPassword());
+        System.out.println("codificada " + registerDTO.getPassword());
        
-        String passwordDecoded = encoderFacade.decode("base64", passwordBase64);
+        String passwordDecoded = encoderFacade.decode("base64", registerDTO.getPassword());
+
+        System.out.println("decodificada " + passwordDecoded);
+
 
         String passwordEncoded = encoderFacade.encode("bcrypt", passwordDecoded);
 
