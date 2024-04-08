@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/participants")
+@RequestMapping(path = "${api-endpoint}/participants")
 public class ParticipantController {
 
     private final ParticipantService participantService;
