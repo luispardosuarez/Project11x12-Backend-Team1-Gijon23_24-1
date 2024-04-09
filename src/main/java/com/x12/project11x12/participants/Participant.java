@@ -5,7 +5,6 @@ import com.x12.project11x12.inscriptions.InscriptionParticipant;
 import com.x12.project11x12.profiles.Profile;
 
 import jakarta.persistence.*;
-
 import java.util.Date;
 import java.util.Set;
 
@@ -52,12 +51,29 @@ public class Participant {
     private String remarks;
 
     @ManyToOne
-    @JoinColumn(name = "profile_id")
+    @JoinColumn(name = "id_profile")
     private Profile profile;
 
     @JsonIgnore
     @OneToMany(mappedBy = "participant")
     private Set<InscriptionParticipant> inscriptions;
+
+    public Participant() {
+    }
+
+    public Participant(String participantName, String participantSurname, String dni, String street, String pc, String city, String municipality, String mail, Date birthDate, String allergies, String remarks) {
+        this.participantName = participantName;
+        this.participantSurname = participantSurname;
+        this.dni = dni;
+        this.street = street;
+        this.pc = pc;
+        this.city = city;
+        this.municipality = municipality;
+        this.mail = mail;
+        this.birthDate = birthDate;
+        this.allergies = allergies;
+        this.remarks = remarks;
+    }
 
     public Long getId() {
         return id;
