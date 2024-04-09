@@ -1,6 +1,8 @@
 package com.x12.project11x12.config;
 
 import java.util.Arrays;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -10,6 +12,7 @@ import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.web.AuthenticationEntryPoint;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.web.cors.CorsConfiguration;
 import org.springframework.web.cors.CorsConfigurationSource;
@@ -23,6 +26,9 @@ public class SecurityConfiguration {
 
     @Value("${api-endpoint}")
     String endpoint;
+
+    @Autowired
+    private AuthenticationEntryPoint CustomAuthenticationEntryPoint;
 
     JpaUserDetailsService jpaUserDetailsService;
 
@@ -50,6 +56,7 @@ public class SecurityConfiguration {
                         .requestMatchers(HttpMethod.POST, endpoint + "/profile").permitAll()
                         .anyRequest().authenticated())                
                 .userDetailsService(jpaUserDetailsService)
+                .httpBasic(basic -> basic.authenticationEntryPoint(CustomAuthenticationEntryPoint))
                 .httpBasic(Customizer.withDefaults())
                 .sessionManagement(session -> session
                         .sessionCreationPolicy(SessionCreationPolicy.IF_REQUIRED));
