@@ -4,7 +4,6 @@ public class RegisterDTO {
 
     private String username;
     private String password;
-    private String email;
 
     public String getUsername() {
         return username;
@@ -23,10 +22,10 @@ public class RegisterDTO {
     }
 
     public String getEmail() {
-        return email;
+        return username;
     }
     
-    public void setEmail(String email) {
-        this.email = email;
+    public void setEmail(String username) {
+        this.username = username;
     }
 }
