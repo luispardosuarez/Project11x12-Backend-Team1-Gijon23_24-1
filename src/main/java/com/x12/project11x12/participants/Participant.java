@@ -5,13 +5,14 @@ import com.x12.project11x12.inscriptions.InscriptionParticipant;
 import com.x12.project11x12.profiles.Profile;
 
 import jakarta.persistence.*;
+
 import java.util.Date;
 import java.util.Set;
 
 @Entity
 @Table(name = "participants")
 public class Participant {
-
+    
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_participant")
