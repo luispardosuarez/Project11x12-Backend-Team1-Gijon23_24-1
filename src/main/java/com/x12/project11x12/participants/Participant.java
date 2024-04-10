@@ -1,7 +1,7 @@
 package com.x12.project11x12.participants;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-// import com.x12.project11x12.inscriptions.InscriptionParticipant;
+import com.x12.project11x12.inscriptions.InscriptionParticipant;
 import com.x12.project11x12.profiles.Profile;
 
 import jakarta.persistence.*;
@@ -57,7 +57,7 @@ public class Participant {
 
     @JsonIgnore
     @OneToMany(mappedBy = "participant")
-    // private Set<InscriptionParticipant> inscriptions;
+    private Set<InscriptionParticipant> inscriptions;
 
     public Long getId() {
         return id;
@@ -162,12 +162,12 @@ public class Participant {
     public void setProfile(Profile profile) {
         this.profile = profile;
     }
-/* 
+
     public Set<InscriptionParticipant> getInscriptions() {
         return inscriptions;
     }
 
     public void setInscriptions(Set<InscriptionParticipant> inscriptions) {
         this.inscriptions = inscriptions;
-    } */
+    }
 }
