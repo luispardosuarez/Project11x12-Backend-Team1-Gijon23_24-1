@@ -41,6 +41,9 @@ public class SecurityConfiguration {
                         .requestMatchers(HttpMethod.POST, endpoint + "/scholarship").permitAll()
                         .requestMatchers(HttpMethod.GET, endpoint + "/profile").permitAll()
                         .requestMatchers(HttpMethod.POST, endpoint + "/profile").permitAll()
+                        .requestMatchers(HttpMethod.GET, endpoint + "/participants").permitAll()
+                        .requestMatchers(HttpMethod.POST, endpoint + "/participants").permitAll()
+                        .requestMatchers(HttpMethod.PUT, endpoint + "/participants/**").permitAll()                        
                         .anyRequest().authenticated())
                 .httpBasic(Customizer.withDefaults())
                 .sessionManagement(session -> session
