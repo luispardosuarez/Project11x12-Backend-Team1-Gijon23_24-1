@@ -1,6 +1,5 @@
 package com.x12.project11x12.participants;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -10,7 +9,6 @@ public class ParticipantService {
 
     private final ParticipantRepository participantRepository;
 
-    @Autowired
     public ParticipantService(ParticipantRepository participantRepository) {
         this.participantRepository = participantRepository;
     }

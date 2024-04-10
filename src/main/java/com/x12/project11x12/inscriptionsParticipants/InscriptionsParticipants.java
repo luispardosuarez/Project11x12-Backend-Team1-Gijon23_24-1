@@ -1,4 +1,4 @@
-package com.x12.project11x12.inscriptions_participants;
+package com.x12.project11x12.inscriptionsParticipants;
 
 import com.x12.project11x12.inscriptions.Inscriptions;
 
@@ -22,13 +22,10 @@ public class InscriptionsParticipants {
     
     @ManyToOne
     @JoinColumn(name = "inscription_id")
-    private Inscriptions inscription;
+    private Inscriptions inscriptions;
     
     @Column
     private Integer participant_id; 
-
-    @Column
-    private Integer inscription_id;
 
     @Column
     private Boolean breakfast;
@@ -48,12 +45,11 @@ public class InscriptionsParticipants {
     public InscriptionsParticipants() {
     }
 
-    public InscriptionsParticipants(Long id, Inscriptions inscription, Integer participant_id, Integer inscription_id,
-            Boolean breakfast, Boolean snak, String allergies, String remarks, Integer invoice) {
+    public InscriptionsParticipants(Long id, Inscriptions inscriptions, Integer participant_id, Boolean breakfast,
+            Boolean snak, String allergies, String remarks, Integer invoice) {
         this.id = id;
-        this.inscription = inscription;
+        this.inscriptions = inscriptions;
         this.participant_id = participant_id;
-        this.inscription_id = inscription_id;
         this.breakfast = breakfast;
         this.snak = snak;
         this.allergies = allergies;
@@ -69,12 +65,12 @@ public class InscriptionsParticipants {
         this.id = id;
     }
 
-    public Inscriptions getInscription() {
-        return inscription;
+    public Inscriptions getInscriptions() {
+        return inscriptions;
     }
 
-    public void setInscription(Inscriptions inscription) {
-        this.inscription = inscription;
+    public void setInscriptions(Inscriptions inscriptions) {
+        this.inscriptions = inscriptions;
     }
 
     public Integer getParticipant_id() {
@@ -83,14 +79,6 @@ public class InscriptionsParticipants {
 
     public void setParticipant_id(Integer participant_id) {
         this.participant_id = participant_id;
-    }
-
-    public Integer getInscription_id() {
-        return inscription_id;
-    }
-
-    public void setInscription_id(Integer inscription_id) {
-        this.inscription_id = inscription_id;
     }
 
     public Boolean getBreakfast() {
@@ -132,12 +120,5 @@ public class InscriptionsParticipants {
     public void setInvoice(Integer invoice) {
         this.invoice = invoice;
     }
-
-
-    
-
-
-
-    
-    
+ 
 }

@@ -19,6 +19,4 @@ public class InscriptionsServices {
     public Optional<Inscriptions> getInscriptionById(Long id) {
         return inscriptionsRepository.findById(id);
     }
-
-    
 }
