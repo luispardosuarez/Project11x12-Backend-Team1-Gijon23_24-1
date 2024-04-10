@@ -9,5 +9,5 @@ INSERT roles_users (role_id, user_id) VALUES (1, 1);
 
 INSERT INTO scholarships (id_scholarship, dni) VALUES (default, '10000000X');
 
--- Profile
-INSERT INTO profiles (id, dni, profile_name, profile_surname, tlf1, tlf2) VALUES (1, '12345678A', 'Juan', 'Perez', '912345678', '987654321');
+-- -- Profile
+-- INSERT INTO profiles (id, dni, profile_name, profile_surname, tlf1, tlf2) VALUES (1, '12345678A', 'Juan', 'Perez', '912345678', '987654321');
