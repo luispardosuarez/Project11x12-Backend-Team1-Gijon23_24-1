@@ -23,19 +23,15 @@ public class Place {
     @Column(name = "camp_id")
     private int campId;
 
-    // Constructor por defecto
     public Place() {
     }
 
-    // Constructor detallado
     public Place(int placeNumber, int schoolId, int weekId, int campId) {
         this.placeNumber = placeNumber;
         this.schoolId = schoolId;
         this.weekId = weekId;
         this.campId = campId;
     }
-
-    // Getters y Setters
 
     public Long getId() {
         return id;
