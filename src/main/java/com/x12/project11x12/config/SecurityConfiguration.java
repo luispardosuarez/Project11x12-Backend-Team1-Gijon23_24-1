@@ -52,6 +52,7 @@ public class SecurityConfiguration {
                         .requestMatchers(HttpMethod.POST, endpoint + "/register").permitAll()    
                         .requestMatchers(HttpMethod.GET, endpoint + "/scholarship").permitAll()
                         .requestMatchers(HttpMethod.POST, endpoint + "/scholarship").permitAll()
+                        .requestMatchers(HttpMethod.DELETE, endpoint + "/scholarship/**").hasRole("ADMIN")
                         .requestMatchers(HttpMethod.GET, endpoint + "/profile").permitAll()
                         .requestMatchers(HttpMethod.POST, endpoint + "/profile").permitAll()
                         .requestMatchers(HttpMethod.GET, endpoint + "/camps").permitAll()
