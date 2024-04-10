@@ -55,12 +55,6 @@ public class SecurityConfiguration {
                         .requestMatchers(HttpMethod.DELETE, endpoint + "/scholarship/**").hasRole("ADMIN")
                         .requestMatchers(HttpMethod.GET, endpoint + "/profile").permitAll()
                         .requestMatchers(HttpMethod.POST, endpoint + "/profile").permitAll()
-<<<<<<< HEAD
-                        .requestMatchers(HttpMethod.GET, endpoint + "/participants").permitAll()
-                        .requestMatchers(HttpMethod.POST, endpoint + "/participants").permitAll()
-                        .requestMatchers(HttpMethod.PUT, endpoint + "/participants/**").permitAll()                        
-                        .anyRequest().authenticated())
-=======
                         .requestMatchers(HttpMethod.GET, endpoint + "/camps").permitAll()
                         .requestMatchers(HttpMethod.POST, endpoint + "/camps").permitAll()
                         .requestMatchers(HttpMethod.GET, endpoint + "/participants").permitAll()
@@ -69,7 +63,6 @@ public class SecurityConfiguration {
                         .anyRequest().authenticated())                
                 .userDetailsService(jpaUserDetailsService)
                 .httpBasic(basic -> basic.authenticationEntryPoint(CustomAuthenticationEntryPoint))
->>>>>>> dev
                 .httpBasic(Customizer.withDefaults())
                 .sessionManagement(session -> session
                         .sessionCreationPolicy(SessionCreationPolicy.IF_REQUIRED));
