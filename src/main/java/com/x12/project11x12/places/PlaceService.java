@@ -22,4 +22,21 @@ public class PlaceService {
         return placeRepository.findById(id)
                 .orElseThrow(() -> new RuntimeException("Place with id " + id + " not found"));
     }
+
+    public Place createPlace(Place place) {
+        return placeRepository.save(place);
+    }
+
+    public Place updatePlace(Long id, Place updatedPlace) {
+        Place place = placeRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Place with id " + id + " not found"));
+
+        place.setPlaceNumber(updatedPlace.getPlaceNumber());
+        place.setSchoolId(updatedPlace.getSchoolId());
+        place.setWeekId(updatedPlace.getWeekId());
+        place.setCampId(updatedPlace.getCampId());
+
+        return placeRepository.save(place);
+    }
 }
+
