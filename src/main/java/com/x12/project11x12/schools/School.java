@@ -13,14 +13,14 @@ public class School {
   
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id_school")
+    @Column(name = "id_schools")
     private Long id;
 
     @Column(name = "school_name")
     private String schoolName;
 
     @JsonIgnore
-    @OneToMany(mappedBy = "school")
+    @OneToMany(mappedBy = "schools")
     private Set<Inscriptions> inscriptions;
 
     public School() {
