@@ -1,7 +1,7 @@
 package com.x12.project11x12.participants;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.x12.project11x12.InscriptionsParticipants.InscriptionParticipant;
+import com.x12.project11x12.inscriptionsParticipants.InscriptionParticipant;
 import com.x12.project11x12.profiles.Profile;
 
 import jakarta.persistence.*;

@@ -1,7 +1,7 @@
 package com.x12.project11x12.schools;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.x12.project11x12.Inscriptions.Inscription;
+import com.x12.project11x12.inscriptions.Inscription;
 
 import jakarta.persistence.*;
 

@@ -62,6 +62,7 @@ public class SecurityConfiguration {
                         .requestMatchers(HttpMethod.PUT, endpoint + "/participants/**").permitAll()
                         .requestMatchers(HttpMethod.GET, endpoint + "/schools").permitAll()
                         .requestMatchers(HttpMethod.GET, endpoint + "/places").permitAll()
+                        .requestMatchers(HttpMethod.PUT, endpoint + "/places/**").permitAll()
                         .anyRequest().authenticated())                
                 .userDetailsService(jpaUserDetailsService)
                 .httpBasic(basic -> basic.authenticationEntryPoint(CustomAuthenticationEntryPoint))
