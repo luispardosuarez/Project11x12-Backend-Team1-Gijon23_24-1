@@ -1,6 +1,5 @@
 package com.x12.project11x12.participants;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -13,7 +12,6 @@ public class ParticipantController {
 
     private final ParticipantService participantService;
 
-    @Autowired
     public ParticipantController(ParticipantService participantService) {
         this.participantService = participantService;
     }
