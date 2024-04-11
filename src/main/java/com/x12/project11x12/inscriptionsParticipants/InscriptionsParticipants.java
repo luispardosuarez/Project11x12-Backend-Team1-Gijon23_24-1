@@ -1,6 +1,7 @@
 package com.x12.project11x12.inscriptionsParticipants;
 
 import com.x12.project11x12.inscriptions.Inscriptions;
+import com.x12.project11x12.participants.Participant;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -24,8 +25,9 @@ public class InscriptionsParticipants {
     @JoinColumn(name = "inscription_id")
     private Inscriptions inscriptions;
     
-    @Column
-    private Integer participant_id; 
+    @ManyToOne
+    @JoinColumn(name = "participant_id")
+    private Participant participants;
 
     @Column
     private Boolean breakfast;
@@ -45,11 +47,11 @@ public class InscriptionsParticipants {
     public InscriptionsParticipants() {
     }
 
-    public InscriptionsParticipants(Long id, Inscriptions inscriptions, Integer participant_id, Boolean breakfast,
+    public InscriptionsParticipants(Long id, Inscriptions inscriptions, Participant participants, Boolean breakfast,
             Boolean snak, String allergies, String remarks, Integer invoice) {
         this.id = id;
         this.inscriptions = inscriptions;
-        this.participant_id = participant_id;
+        this.participants = participants;
         this.breakfast = breakfast;
         this.snak = snak;
         this.allergies = allergies;
@@ -73,12 +75,12 @@ public class InscriptionsParticipants {
         this.inscriptions = inscriptions;
     }
 
-    public Integer getParticipant_id() {
-        return participant_id;
+    public Participant getParticipants() {
+        return participants;
     }
 
-    public void setParticipant_id(Integer participant_id) {
-        this.participant_id = participant_id;
+    public void setParticipants(Participant participants) {
+        this.participants = participants;
     }
 
     public Boolean getBreakfast() {
@@ -119,6 +121,6 @@ public class InscriptionsParticipants {
 
     public void setInvoice(Integer invoice) {
         this.invoice = invoice;
-    }
+    }    
  
 }
