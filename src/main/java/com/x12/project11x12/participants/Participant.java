@@ -56,7 +56,7 @@ public class Participant {
     private Profile profile;
 
     @JsonIgnore
-    @OneToMany(mappedBy = "participant")
+    @OneToMany(mappedBy = "participants")
     private Set<InscriptionParticipant> inscriptions;
 
     public Participant() {
