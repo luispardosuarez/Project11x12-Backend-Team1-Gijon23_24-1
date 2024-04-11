@@ -45,7 +45,7 @@ public class Participant {
     @Column(name = "birth_date")
     private Date birthDate;
 
-    @Column(name = "alergies")
+    @Column(name = "allergies")
     private String allergies;
 
     @Column(name = "remarks")
@@ -57,7 +57,29 @@ public class Participant {
 
     @JsonIgnore
     @OneToMany(mappedBy = "participants")
-    private Set<InscriptionsParticipants> inscriptions;
+    private Set<InscriptionsParticipants> inscriptionsParticipants;
+
+    public Participant() {
+    }
+
+    public Participant(Long id, String participantName, String participantSurname, String dni, String street, String pc,
+            String city, String municipality, String mail, Date birthDate, String allergies, String remarks,
+            Profile profile, Set<InscriptionsParticipants> inscriptionsParticipants) {
+        this.id = id;
+        this.participantName = participantName;
+        this.participantSurname = participantSurname;
+        this.dni = dni;
+        this.street = street;
+        this.pc = pc;
+        this.city = city;
+        this.municipality = municipality;
+        this.mail = mail;
+        this.birthDate = birthDate;
+        this.allergies = allergies;
+        this.remarks = remarks;
+        this.profile = profile;
+        this.inscriptionsParticipants = inscriptionsParticipants;
+    }
 
     public Long getId() {
         return id;
@@ -163,11 +185,12 @@ public class Participant {
         this.profile = profile;
     }
 
-    public Set<InscriptionsParticipants> getInscriptions() {
-        return inscriptions;
+    public Set<InscriptionsParticipants> getInscriptionsParticipants() {
+        return inscriptionsParticipants;
     }
-
-    public void setInscriptions(Set<InscriptionsParticipants> inscriptions) {
-        this.inscriptions = inscriptions;
+    
+    public void setInscriptionsParticipants(Set<InscriptionsParticipants> inscriptionsParticipants) {
+        this.inscriptionsParticipants = inscriptionsParticipants;
     }
+    
 }

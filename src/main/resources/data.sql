@@ -24,6 +24,7 @@ INSERT INTO participants (id_participant, participant_name, participant_surname,
 VALUES (1, 'Casiano', 'Chapas', '98765432B', 'Tontorron', '33321', 'Sama', 'Langreo', 'casiano@gijon11x12.com', '1989-05-15', 'Aspirina', 'Sin observaciones');
 
 
+
 -- Profile
 INSERT INTO profiles (id, dni, profile_name, profile_surname, tlf1, tlf2) VALUES (1, '12345678A', 'Juan', 'Perez', '912345678', '987654321');
 
@@ -34,6 +35,6 @@ INSERT INTO camps (id_camp, camp_name, start_date, end_date, schedule, descripti
 
 
 -- Schools
-INSERT INTO schools (id_school, school_name) VALUES (1, 'Colegio La Escuelona');
-INSERT INTO schools (id_school, school_name) VALUES (2, 'Colegio Nicanor Piñole');
-INSERT INTO schools (id_school, school_name) VALUES (3, 'Colegio Río Piles');
+INSERT INTO schools (id_schools, school_name) VALUES (1, 'Colegio La Escuelona');
+INSERT INTO schools (id_schools, school_name) VALUES (2, 'Colegio Nicanor Piñole');
+INSERT INTO schools (id_schools, school_name) VALUES (3, 'Colegio Río Piles');

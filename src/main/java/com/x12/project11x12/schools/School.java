@@ -20,7 +20,7 @@ public class School {
     private String schoolName;
 
     @JsonIgnore
-    @OneToMany(mappedBy = "schools")
+    @OneToMany(mappedBy = "school")
     private Set<Inscriptions> inscriptions;
 
     public School() {

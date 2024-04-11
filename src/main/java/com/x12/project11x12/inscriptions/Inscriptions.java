@@ -5,13 +5,17 @@ import java.util.Date;
 import java.util.List;
 
 import com.x12.project11x12.inscriptionsParticipants.InscriptionsParticipants;
+import com.x12.project11x12.schools.School;
 
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 
@@ -33,9 +37,9 @@ public class Inscriptions {
     @Column
     private Integer week_id;
 
-/*     @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "id_schools") */
-    // ***** LUIS ****   private Schools schools;
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "id_schools")
+    private School school;
 
 /*     @OneToOne
     @JoinColumn(name = "id_week") */
