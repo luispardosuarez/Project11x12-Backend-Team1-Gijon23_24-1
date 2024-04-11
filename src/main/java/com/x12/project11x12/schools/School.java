@@ -1,7 +1,7 @@
 package com.x12.project11x12.schools;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.x12.project11x12.inscriptions.Inscription;
+import com.x12.project11x12.inscriptions.Inscriptions;
 
 import jakarta.persistence.*;
 
@@ -21,7 +21,7 @@ public class School {
 
     @JsonIgnore
     @OneToMany(mappedBy = "school")
-    private Set<Inscription> inscriptions;
+    private Set<Inscriptions> inscriptions;
 
     public School() {
     }
@@ -46,11 +46,11 @@ public class School {
         this.schoolName = schoolName;
     }
 
-    public Set<Inscription> getInscriptions() {
+    public Set<Inscriptions> getInscriptions() {
         return inscriptions;
     }
 
-    public void setInscriptions(Set<Inscription> inscriptions) {
+    public void setInscriptions(Set<Inscriptions> inscriptions) {
         this.inscriptions = inscriptions;
     }
 }
