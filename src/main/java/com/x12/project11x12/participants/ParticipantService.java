@@ -43,4 +43,8 @@ public class ParticipantService {
         participant.setRemarks(participantDetails.getRemarks());
         return participantRepository.save(participant);
     }
+
+    public void deleteParticipant(Long id) {
+        participantRepository.deleteById(id);
+    }
 }
