@@ -14,4 +14,3 @@ public class DiscountNotFoundException extends RuntimeException {
         super(message, cause);
     }
 }
-

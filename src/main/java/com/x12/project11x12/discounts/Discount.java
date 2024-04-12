@@ -2,7 +2,6 @@ package com.x12.project11x12.discounts;
 
 import jakarta.persistence.*;
 
-
 @Entity
 @Table(name = "discounts")
 public class Discount {
@@ -11,9 +10,6 @@ public class Discount {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_discount")
     private Long id;
-
-    @Column(name = "id_food")
-    private Long foodId;
 
     @Column(name = "discount_name")
     private String discountName;
@@ -24,8 +20,7 @@ public class Discount {
     public Discount() {
     }
 
-    public Discount(Long foodId, String discountName, double discountImport) {
-        this.foodId = foodId;
+    public Discount(String discountName, double discountImport) {
         this.discountName = discountName;
         this.discountImport = discountImport;
     }
@@ -36,14 +31,6 @@ public class Discount {
 
     public void setId(Long id) {
         this.id = id;
-    }
-
-    public Long getFoodId() {
-        return foodId;
-    }
-
-    public void setFoodId(Long foodId) {
-        this.foodId = foodId;
     }
 
     public String getDiscountName() {

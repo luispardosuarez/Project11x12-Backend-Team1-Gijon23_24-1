@@ -24,16 +24,19 @@ public class DiscountController {
         return new ResponseEntity<>(discounts, HttpStatus.OK);
     }
 
-    @GetMapping("/{id}")
-    public ResponseEntity<Discount> getDiscountById(@PathVariable Long id) {
-        Discount discount = discountService.getDiscountById(id);
-        return new ResponseEntity<>(discount, HttpStatus.OK);
-    }
-
     @PostMapping
     public ResponseEntity<Discount> createDiscount(@RequestBody Discount discount) {
         Discount createdDiscount = discountService.createDiscount(discount);
         return new ResponseEntity<>(createdDiscount, HttpStatus.CREATED);
+    }
+
+    @PutMapping("/{id}")
+    public ResponseEntity<Discount> updateDiscount(@PathVariable Long id, @RequestBody Discount discountDetails) {
+        Discount updatedDiscount = discountService.updateDiscount(id, discountDetails);
+        if (updatedDiscount == null) {
+            return ResponseEntity.notFound().build();
+        }
+        return ResponseEntity.ok(updatedDiscount);
     }
 
     @DeleteMapping("/{id}")
@@ -42,4 +45,3 @@ public class DiscountController {
         return ResponseEntity.ok("Discount deleted successfully");
     }
 }
-
