@@ -54,4 +54,3 @@ public class School {
         this.inscriptions = inscriptions;
     }
 }
-

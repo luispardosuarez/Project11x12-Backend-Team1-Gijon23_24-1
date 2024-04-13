@@ -78,8 +78,5 @@ public class Profile {
   public void setTlf2(String tlf2) {
     this.tlf2 = tlf2;
   }
-
-  
-
   
 }

@@ -17,9 +17,9 @@ import org.springframework.web.bind.annotation.PathVariable;
 public class InscriptionsController {
 
     @Autowired
-    private InscriptionsServices inscriptionsServices;
+    private InscriptionsService inscriptionsServices;
 
-    public InscriptionsController(InscriptionsServices inscriptionsServices) {
+    public InscriptionsController(InscriptionsService inscriptionsServices) {
         this.inscriptionsServices = inscriptionsServices;
     }
 
