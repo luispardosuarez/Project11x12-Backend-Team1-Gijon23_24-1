@@ -2,11 +2,15 @@ package com.x12.project11x12.camp_weeks;
 
 import java.util.Date;
 
+import com.x12.project11x12.camps.Camp;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 
 @Entity
@@ -16,6 +20,10 @@ public class CampWeek {
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   @Column (name = "id_week")
   private Long id;
+
+  @ManyToOne
+  @JoinColumn(name = "id_camp")
+  private Camp camp;
 
   private Date start_date;
   private Date end_date;
