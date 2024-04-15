@@ -70,7 +70,7 @@ public class SecurityConfiguration {
                         .requestMatchers(HttpMethod.POST, endpoint + "/places").permitAll()
                         .requestMatchers(HttpMethod.PUT, endpoint + "/places/**").permitAll()
                         .requestMatchers(HttpMethod.DELETE, endpoint + "/places/**").permitAll()
-                        .requestMatchers(HttpMethod.GET, endpoint + "/prices").permitAll()
+.requestMatchers(HttpMethod.GET, endpoint + "/prices").permitAll()
                         .requestMatchers(HttpMethod.POST, endpoint + "/prices").permitAll()
                         .requestMatchers(HttpMethod.PUT, endpoint + "/prices/**").permitAll()
                         .requestMatchers(HttpMethod.DELETE, endpoint + "/prices/**").permitAll()
@@ -78,6 +78,7 @@ public class SecurityConfiguration {
                         .requestMatchers(HttpMethod.POST, endpoint + "/discounts").permitAll()
                         .requestMatchers(HttpMethod.PUT, endpoint + "/discounts/**").permitAll()
                         .requestMatchers(HttpMethod.DELETE, endpoint + "/discounts/**").permitAll()
+                        .requestMatchers(HttpMethod.GET, endpoint + "/campweeks").permitAll()
                         .anyRequest().authenticated())                
                 .userDetailsService(jpaUserDetailsService)
                 .httpBasic(basic -> basic.authenticationEntryPoint(CustomAuthenticationEntryPoint))
@@ -93,8 +94,7 @@ public class SecurityConfiguration {
     CorsConfigurationSource corsConfigurationSource() {
         CorsConfiguration configuration = new CorsConfiguration();
         configuration.setAllowCredentials(true);
-        configuration.setAllowedOrigins(Arrays.asList("http://localhost:5173"));        
-        // configuration.setAllowedOrigins(Arrays.asList("https://api-gijon11x12.factoriaf5asturias.org/"));
+        configuration.setAllowedOrigins(Arrays.asList("http://localhost:5173", "https://api-gijon11x12.factoriaf5asturias.org/"));        
         configuration.setAllowedMethods(Arrays.asList("GET", "POST", "PUT", "DELETE"));
         configuration.setAllowedHeaders(Arrays.asList("Content-Type", "Authorization"));
         UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
