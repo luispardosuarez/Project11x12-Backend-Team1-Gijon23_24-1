@@ -22,12 +22,9 @@ public class ParticipantService {
     }
 
     public Participant createParticipant(Participant participant) {
-      if (participant.getId() != null) {
-          return null;
-      } else {
+
           return participantRepository.save(participant);
-      }
-  }
+    }
   
     public Participant updateParticipant(Long id, Participant participantDetails) {
         Participant participant = participantRepository.findById(id).orElse(null);
