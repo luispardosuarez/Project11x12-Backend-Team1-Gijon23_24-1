@@ -12,5 +12,5 @@ phases:
       - echo Build complete.
 artifacts:
   files:
-    - target/<jar-file-name>.jar
+    - target/project11x12-0.0.1-SNAPSHOT.jar
   discard-paths: yes
