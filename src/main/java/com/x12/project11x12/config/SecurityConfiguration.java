@@ -69,6 +69,7 @@ public class SecurityConfiguration {
                         .requestMatchers(HttpMethod.GET, endpoint + "/places").permitAll()
                         .requestMatchers(HttpMethod.POST, endpoint + "/places").permitAll()
                         .requestMatchers(HttpMethod.PUT, endpoint + "/places/**").permitAll()
+<<<<<<< HEAD
                         .requestMatchers(HttpMethod.DELETE, endpoint + "/places/**").permitAll()
 .requestMatchers(HttpMethod.GET, endpoint + "/prices").permitAll()
                         .requestMatchers(HttpMethod.POST, endpoint + "/prices").permitAll()
@@ -78,6 +79,8 @@ public class SecurityConfiguration {
                         .requestMatchers(HttpMethod.POST, endpoint + "/discounts").permitAll()
                         .requestMatchers(HttpMethod.PUT, endpoint + "/discounts/**").permitAll()
                         .requestMatchers(HttpMethod.DELETE, endpoint + "/discounts/**").permitAll()
+=======
+>>>>>>> 1afc9a4c466a75e1a35a8b809c2688c6ed3594f2
                         .requestMatchers(HttpMethod.GET, endpoint + "/campweeks").permitAll()
                         .anyRequest().authenticated())                
                 .userDetailsService(jpaUserDetailsService)
