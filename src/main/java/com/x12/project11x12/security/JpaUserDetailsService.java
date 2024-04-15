@@ -7,20 +7,22 @@ import org.springframework.stereotype.Service;
 import com.x12.project11x12.users.UserRepository;
 
 @Service
-public class JpaUserDetailsService implements UserDetailsService{
+public class JpaUserDetailsService implements UserDetailsService {
 
-     UserRepository repository;
+    UserRepository repository;
 
     public JpaUserDetailsService(UserRepository repository) {
-        this.repository =repository;
+        this.repository = repository;
     }
-
+ 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-                
+        
         return repository
-                .findByUserEmail(username)
+                .findByUsername(username)
                 .map(SecurityUser::new)
                 .orElseThrow(() -> new UsernameNotFoundException("User not found" + username));
-    }         
+
+    }
+
 }
