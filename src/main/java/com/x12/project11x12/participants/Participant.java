@@ -1,7 +1,7 @@
 package com.x12.project11x12.participants;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.x12.project11x12.inscriptionsParticipants.InscriptionsParticipants;
+import com.x12.project11x12.inscriptionsParticipants.InscriptionParticipant;
 import com.x12.project11x12.profiles.Profile;
 
 import jakarta.persistence.*;
@@ -45,7 +45,7 @@ public class Participant {
     @Column(name = "birth_date")
     private Date birthDate;
 
-    @Column(name = "alergies")
+    @Column(name = "allergies")
     private String allergies;
 
     @Column(name = "remarks")
@@ -57,7 +57,7 @@ public class Participant {
 
     @JsonIgnore
     @OneToMany(mappedBy = "participants")
-    private Set<InscriptionsParticipants> inscriptions;
+    private Set<InscriptionParticipant> inscriptions;
 
     public Long getId() {
         return id;
@@ -163,11 +163,11 @@ public class Participant {
         this.profile = profile;
     }
 
-    public Set<InscriptionsParticipants> getInscriptions() {
+    public Set<InscriptionParticipant> getInscriptions() {
         return inscriptions;
     }
 
-    public void setInscriptions(Set<InscriptionsParticipants> inscriptions) {
+    public void setInscriptions(Set<InscriptionParticipant> inscriptions) {
         this.inscriptions = inscriptions;
     }
 }

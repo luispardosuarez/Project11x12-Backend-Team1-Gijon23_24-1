@@ -13,6 +13,13 @@ INSERT INTO scholarships (id_scholarship, dni) VALUES (default, '10000000X');
 /* INSERT INTO profiles (id, dni, profile_name, profile_surname, tlf1, tlf2) VALUES (1, '12345678A', 'Juan', 'Perez', '912345678', '987654321'); */
 
 -- Participant
-/* INSERT INTO participants (id_participant, participant_name, participant_surname, DNI, street, PC, city, municipality, mail, birth_date, allergies, remarks) 
-VALUES (1, 'Casiano', 'Chapas', '98765432B', 'Tontorron', '33321', 'Sama', 'Langreo', 'casiano@gijon11x12.com', '1989-05-15', 'Aspirina', 'Sin observaciones');
- */
+INSERT INTO participants (id_participant, participant_name, participant_surname, DNI, street, PC, city, municipality, mail, birth_date, allergies, remarks) VALUES (1, 'Casiano', 'Chapas', '98765432B', 'Tontorron', '33321', 'Sama', 'Langreo', 'casiano@gijon11x12.com', '1989-05-15', 'Aspirina', 'Sin observaciones');  
+
+ -- Inscriptions
+INSERT INTO inscriptions (id_inscription, school_id, inscription_date, week_id) VALUES (1, 1, '2024/04/16', 3);
+INSERT INTO inscriptions (id_inscription, school_id, inscription_date, week_id) VALUES (2, 2, '2024/04/12', 2);
+ 
+  -- InscriptionParticipant
+INSERT INTO inscriptions_participants (id_ins_part, inscription_id, participant_id, breakfast, snak, allergies, remarks, invoice) VALUES (1, 1, 1, TRUE, TRUE, 'Aspirina', 'Sin observaciones', 50); 
+
+INSERT INTO inscriptions_participants (id_ins_part, inscription_id, participant_id, breakfast, snak, allergies, remarks, invoice) VALUES (2, 1, 1, FALSE, FALSE, 'Huevo', 'asmático, lleva inhalador', 0);

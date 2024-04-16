@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-import com.x12.project11x12.inscriptionsParticipants.InscriptionsParticipants;
+import com.x12.project11x12.inscriptionsParticipants.InscriptionParticipant;
 
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
@@ -42,14 +42,14 @@ public class Inscriptions {
     // ***** ERIKA ****    private CampWeeks campWeeks;
 
     @OneToMany(mappedBy = "inscriptions", cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<InscriptionsParticipants> inscriptionsParticipants = new ArrayList<>();
+    private List<InscriptionParticipant> inscriptionsParticipants = new ArrayList<>();
 
 
     public Inscriptions() {
     }
 
     public Inscriptions(Long id, Integer school_id, Date inscription_date, Integer week_id,
-            List<InscriptionsParticipants> inscriptionsParticipants) {
+            List<InscriptionParticipant> inscriptionsParticipants) {
         this.id = id;
         this.school_id = school_id;
         this.inscription_date = inscription_date;
@@ -89,11 +89,11 @@ public class Inscriptions {
         this.week_id = week_id;
     }
 
-    public List<InscriptionsParticipants> getInscriptionsParticipants() {
+    public List<InscriptionParticipant> getInscriptionsParticipants() {
         return inscriptionsParticipants;
     }
 
-    public void setInscriptionsParticipants(List<InscriptionsParticipants> inscriptionsParticipants) {
+    public void setInscriptionsParticipants(List<InscriptionParticipant> inscriptionsParticipants) {
         this.inscriptionsParticipants = inscriptionsParticipants;
     }
 
