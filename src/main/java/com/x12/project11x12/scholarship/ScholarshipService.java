@@ -34,6 +34,14 @@ public class ScholarshipService implements IGenericLimtedService<Scholarship>{
         return newScholarship;
     }
 
+    public Scholarship update(Long id, @NonNull Scholarship updatedScholarship) throws ScholarshipNotFoundException {
+        Scholarship scholarship = repository.findById(id)
+                .orElseThrow(() -> new ScholarshipNotFoundException("Scholarship not found"));
+        
+        scholarship.setDni(updatedScholarship.getDni());
+        return repository.save(scholarship);
+    }
+
     public void deleteById(Long id) throws Exception {
         if (repository.existsById(id)) {
             repository.deleteById(id);
