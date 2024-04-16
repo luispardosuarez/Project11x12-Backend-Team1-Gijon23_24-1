@@ -19,8 +19,7 @@ public class PlaceService {
     }
 
     public Place getPlaceById(Long id) {
-        return placeRepository.findById(id)
-                .orElseThrow(() -> new RuntimeException("Place with id " + id + " not found"));
+        return placeRepository.findById(id).orElse(null);
     }
 
     public Place createPlace(Place place) {
@@ -28,15 +27,22 @@ public class PlaceService {
     }
 
     public Place updatePlace(Long id, Place updatedPlace) {
-        Place place = placeRepository.findById(id)
-                .orElseThrow(() -> new RuntimeException("Place with id " + id + " not found"));
+        Place existingPlace = placeRepository.findById(id).orElse(null);
+        if (existingPlace != null) {
+            existingPlace.setPlaceNumber(updatedPlace.getPlaceNumber());
+            existingPlace.setSchoolId(updatedPlace.getSchoolId());
+            existingPlace.setWeekId(updatedPlace.getWeekId());
+            existingPlace.setCampId(updatedPlace.getCampId());
+            return placeRepository.save(existingPlace);
+        } else {
+            return null;
+        }
+    }
 
-        place.setPlaceNumber(updatedPlace.getPlaceNumber());
-        place.setSchoolId(updatedPlace.getSchoolId());
-        place.setWeekId(updatedPlace.getWeekId());
-        place.setCampId(updatedPlace.getCampId());
-
-        return placeRepository.save(place);
+    public void deletePlace(Long id) {
+        placeRepository.deleteById(id);
     }
 }
+
+
 

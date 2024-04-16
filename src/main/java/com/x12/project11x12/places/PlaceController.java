@@ -39,7 +39,17 @@ public class PlaceController {
     @PutMapping("/{id}")
     public ResponseEntity<Place> updatePlace(@PathVariable("id") Long id, @RequestBody Place place) {
         Place updatedPlace = placeService.updatePlace(id, place);
-        return new ResponseEntity<>(updatedPlace, HttpStatus.OK);
+        if (updatedPlace != null) {
+            return new ResponseEntity<>(updatedPlace, HttpStatus.OK);
+        } else {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
+    }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<String> deletePlace(@PathVariable("id") Long id) {
+        placeService.deletePlace(id);
+        return ResponseEntity.ok("Place deleted successfully");
     }
 
 }

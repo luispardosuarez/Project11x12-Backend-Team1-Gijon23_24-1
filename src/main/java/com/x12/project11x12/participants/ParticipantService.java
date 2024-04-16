@@ -22,9 +22,10 @@ public class ParticipantService {
     }
 
     public Participant createParticipant(Participant participant) {
-        return participantRepository.save(participant);
-    }
 
+          return participantRepository.save(participant);
+    }
+  
     public Participant updateParticipant(Long id, Participant participantDetails) {
         Participant participant = participantRepository.findById(id).orElse(null);
         if (participant == null) {
@@ -42,5 +43,9 @@ public class ParticipantService {
         participant.setAllergies(participantDetails.getAllergies());
         participant.setRemarks(participantDetails.getRemarks());
         return participantRepository.save(participant);
+    }
+
+    public void deleteParticipant(Long id) {
+        participantRepository.deleteById(id);
     }
 }
