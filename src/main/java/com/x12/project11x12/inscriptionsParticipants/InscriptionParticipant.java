@@ -33,7 +33,7 @@ public class InscriptionParticipant {
     private Boolean breakfast;
 
     @Column
-    private Boolean snak;
+    private Boolean snack;
 
     @Column
     private String allergies;
@@ -48,12 +48,12 @@ public class InscriptionParticipant {
     }
 
     public InscriptionParticipant(Long id, Inscriptions inscriptions, Participant participants, Boolean breakfast,
-            Boolean snak, String allergies, String remarks, Integer invoice) {
+            Boolean snack, String allergies, String remarks, Integer invoice) {
         this.id = id;
         this.inscriptions = inscriptions;
         this.participants = participants;
         this.breakfast = breakfast;
-        this.snak = snak;
+        this.snack = snack;
         this.allergies = allergies;
         this.remarks = remarks;
         this.invoice = invoice;
@@ -92,11 +92,11 @@ public class InscriptionParticipant {
     }
 
     public Boolean getSnak() {
-        return snak;
+        return snack;
     }
 
-    public void setSnak(Boolean snak) {
-        this.snak = snak;
+    public void setSnak(Boolean snack) {
+        this.snack = snack;
     }
 
     public String getAllergies() {

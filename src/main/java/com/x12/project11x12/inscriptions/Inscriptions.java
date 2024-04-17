@@ -6,6 +6,7 @@ import java.util.List;
 
 import com.x12.project11x12.inscriptionsParticipants.InscriptionParticipant;
 import com.x12.project11x12.schools.School;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.x12.project11x12.camp_weeks.CampWeek;
 
 import jakarta.persistence.CascadeType;
@@ -47,6 +48,7 @@ public class Inscriptions {
     @JoinColumn(name = "id_week") 
     private CampWeek campWeeks;
 
+    @JsonIgnore
     @OneToMany(mappedBy = "inscriptions", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<InscriptionParticipant> inscriptionParticipant = new ArrayList<>();
 
