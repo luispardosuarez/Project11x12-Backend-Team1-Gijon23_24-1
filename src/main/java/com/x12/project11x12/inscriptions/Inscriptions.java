@@ -4,8 +4,9 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-import com.x12.project11x12.inscriptionsParticipants.InscriptionsParticipants;
+import com.x12.project11x12.inscriptionsParticipants.InscriptionParticipant;
 import com.x12.project11x12.schools.School;
+import com.x12.project11x12.camp_weeks.CampWeek;
 
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
@@ -17,6 +18,7 @@ import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
+import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 
 @Entity
@@ -41,24 +43,24 @@ public class Inscriptions {
     @JoinColumn(name = "id_schools")
     private School school;
 
-/*     @OneToOne
-    @JoinColumn(name = "id_week") */
-    // ***** ERIKA ****    private CampWeeks campWeeks;
+    @OneToOne
+    @JoinColumn(name = "id_week") 
+    private CampWeek campWeeks;
 
     @OneToMany(mappedBy = "inscriptions", cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<InscriptionsParticipants> inscriptionsParticipants = new ArrayList<>();
+    private List<InscriptionParticipant> inscriptionParticipant = new ArrayList<>();
 
 
     public Inscriptions() {
     }
 
     public Inscriptions(Long id, Integer school_id, Date inscription_date, Integer week_id,
-            List<InscriptionsParticipants> inscriptionsParticipants) {
+            List<InscriptionParticipant> inscriptionParticipant) {
         this.id = id;
         this.school_id = school_id;
         this.inscription_date = inscription_date;
         this.week_id = week_id;
-        this.inscriptionsParticipants = inscriptionsParticipants;
+        this.inscriptionParticipant = inscriptionParticipant;
     }
 
     public Long getId() {
@@ -93,31 +95,12 @@ public class Inscriptions {
         this.week_id = week_id;
     }
 
-    public List<InscriptionsParticipants> getInscriptionsParticipants() {
-        return inscriptionsParticipants;
+    public List<InscriptionParticipant> getInscriptionParticipant() {
+        return inscriptionParticipant;
     }
 
-    public void setInscriptionsParticipants(List<InscriptionsParticipants> inscriptionsParticipants) {
-        this.inscriptionsParticipants = inscriptionsParticipants;
+    public void setInscriptionParticipant(List<InscriptionParticipant> inscriptionParticipant) {
+        this.inscriptionParticipant = inscriptionParticipant;
     }
-
-    
-    
-/*     @OneToMany(mappedBy = "inscriptions", cascade = CascadeType.ALL, orphanRemoval = true)
-    private Set<InscriptionsParticipants> inscriptionsParticipants = new HashSet<>(); */
-
-/*     @OneToMany(mappedBy = "inscriptions")
-    //@JoinColumn(name = "id_ins_part")
-    private Set<InscriptionsParticipants> inscriptionsParticipants; */
-
-    /* @ManyToMany
-    @JoinTable(
-        name = "inscriptions_participants",
-        joinColumns = @JoinColumn(name = "inscription_id"),
-        inverseJoinColumns = @JoinColumn(name = "participant_id")
-    )
-    private Set<InscriptionsParticipants> participants; */
-
-
  
 }

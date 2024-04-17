@@ -14,7 +14,7 @@ import jakarta.persistence.Table;
 
 @Entity
 @Table(name = "inscriptions_participants")
-public class InscriptionsParticipants {
+public class InscriptionParticipant {
     
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -44,10 +44,10 @@ public class InscriptionsParticipants {
     @Column
     private Integer invoice;
 
-    public InscriptionsParticipants() {
+    public InscriptionParticipant() {
     }
 
-    public InscriptionsParticipants(Long id, Inscriptions inscriptions, Participant participants, Boolean breakfast,
+    public InscriptionParticipant(Long id, Inscriptions inscriptions, Participant participants, Boolean breakfast,
             Boolean snak, String allergies, String remarks, Integer invoice) {
         this.id = id;
         this.inscriptions = inscriptions;

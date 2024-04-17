@@ -1,7 +1,7 @@
 package com.x12.project11x12.participants;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.x12.project11x12.inscriptionsParticipants.InscriptionsParticipants;
+import com.x12.project11x12.inscriptionsParticipants.InscriptionParticipant;
 import com.x12.project11x12.profiles.Profile;
 
 import jakarta.persistence.*;
@@ -57,14 +57,14 @@ public class Participant {
 
     @JsonIgnore
     @OneToMany(mappedBy = "participants")
-    private Set<InscriptionsParticipants> inscriptionsParticipants;
+    private Set<InscriptionParticipant> inscriptionParticipant;
 
     public Participant() {
     }
 
     public Participant(Long id, String participantName, String participantSurname, String dni, String street, String pc,
             String city, String municipality, String mail, Date birthDate, String allergies, String remarks,
-            Profile profile, Set<InscriptionsParticipants> inscriptionsParticipants) {
+            Profile profile, Set<InscriptionParticipant> inscriptionParticipant) {
         this.id = id;
         this.participantName = participantName;
         this.participantSurname = participantSurname;
@@ -78,7 +78,7 @@ public class Participant {
         this.allergies = allergies;
         this.remarks = remarks;
         this.profile = profile;
-        this.inscriptionsParticipants = inscriptionsParticipants;
+        this.inscriptionParticipant = inscriptionParticipant;
     }
 
     public Long getId() {
@@ -185,12 +185,12 @@ public class Participant {
         this.profile = profile;
     }
 
-    public Set<InscriptionsParticipants> getInscriptionsParticipants() {
-        return inscriptionsParticipants;
+    public Set<InscriptionParticipant> getInscriptionParticipant() {
+        return inscriptionParticipant;
     }
     
-    public void setInscriptionsParticipants(Set<InscriptionsParticipants> inscriptionsParticipants) {
-        this.inscriptionsParticipants = inscriptionsParticipants;
+    public void setInscriptionParticipant(Set<InscriptionParticipant> inscriptionParticipant) {
+        this.inscriptionParticipant = inscriptionParticipant;
     }
     
 }
