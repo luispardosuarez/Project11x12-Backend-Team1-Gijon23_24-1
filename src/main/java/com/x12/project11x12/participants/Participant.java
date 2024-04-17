@@ -192,5 +192,9 @@ public class Participant {
     public void setInscriptionParticipant(Set<InscriptionParticipant> inscriptionParticipant) {
         this.inscriptionParticipant = inscriptionParticipant;
     }
+
+    public void delete() {
+    
+    }
     
 }

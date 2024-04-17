@@ -39,4 +39,11 @@ public class ParticipantController {
         Participant updatedParticipant = participantService.updateParticipant(id, participantDetails);
         return new ResponseEntity<>(updatedParticipant, HttpStatus.OK);
     }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<String> deleteParticipant(@PathVariable Long id) {
+        participantService.deleteParticipant(id);
+        return ResponseEntity.ok("Participant deleted successfully");
+    }
+       
 }

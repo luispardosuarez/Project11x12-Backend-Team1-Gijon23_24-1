@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -40,6 +41,18 @@ public class ScholarshipController {
         return ResponseEntity.status(201).body(newScholarship);
     }
 
+    @PutMapping("/{id}")
+    public ResponseEntity<Scholarship> update(@PathVariable Long id, @RequestBody Scholarship updatedScholarship) {
+        try {
+            Scholarship scholarship = service.update(id, updatedScholarship);
+            return ResponseEntity.ok(scholarship);
+        } catch (ScholarshipNotFoundException e) {
+            return ResponseEntity.notFound().build();
+        } catch (Exception e) {
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
+        }
+    }
+
     @DeleteMapping("/{id}")
     public ResponseEntity<String> delete(@PathVariable Long id) {
         try {
@@ -47,7 +60,7 @@ public class ScholarshipController {
             return ResponseEntity.status(HttpStatus.OK).body("Becado eliminado correctamente");
         } catch (Exception e) {
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Ups.. ha ocurrido un error");
-    }
+        }
     }
 
 }
