@@ -38,6 +38,7 @@ INSERT INTO camps (id_camp, camp_name, start_date, end_date, schedule, descripti
 INSERT INTO schools (id_schools, school_name) VALUES (1, 'Colegio La Escuelona');
 INSERT INTO schools (id_schools, school_name) VALUES (2, 'Colegio Nicanor Piñole');
 INSERT INTO schools (id_schools, school_name) VALUES (3, 'Colegio Río Piles');
+
 -- Camp_Weeks
 INSERT INTO camp_weeks (id_week, start_date, end_date, camp_id) VALUES (1, '2024-12-22', '2025-01-09', 1);
 INSERT INTO camp_weeks (id_week, start_date, end_date, camp_id) VALUES (2, '2024-03-25', '2024-04-01', 2);
