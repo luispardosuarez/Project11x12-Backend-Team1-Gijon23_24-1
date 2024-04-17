@@ -14,7 +14,7 @@ import jakarta.persistence.Table;
 
 @Entity
 @Table(name = "inscriptions_participants")
-public class InscriptionsParticipants {
+public class InscriptionParticipant {
     
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -33,7 +33,7 @@ public class InscriptionsParticipants {
     private Boolean breakfast;
 
     @Column
-    private Boolean snak;
+    private Boolean snack;
 
     @Column
     private String allergies;
@@ -44,16 +44,16 @@ public class InscriptionsParticipants {
     @Column
     private Integer invoice;
 
-    public InscriptionsParticipants() {
+    public InscriptionParticipant() {
     }
 
-    public InscriptionsParticipants(Long id, Inscriptions inscriptions, Participant participants, Boolean breakfast,
-            Boolean snak, String allergies, String remarks, Integer invoice) {
+    public InscriptionParticipant(Long id, Inscriptions inscriptions, Participant participants, Boolean breakfast,
+            Boolean snack, String allergies, String remarks, Integer invoice) {
         this.id = id;
         this.inscriptions = inscriptions;
         this.participants = participants;
         this.breakfast = breakfast;
-        this.snak = snak;
+        this.snack = snack;
         this.allergies = allergies;
         this.remarks = remarks;
         this.invoice = invoice;
@@ -92,11 +92,11 @@ public class InscriptionsParticipants {
     }
 
     public Boolean getSnak() {
-        return snak;
+        return snack;
     }
 
-    public void setSnak(Boolean snak) {
-        this.snak = snak;
+    public void setSnak(Boolean snack) {
+        this.snack = snack;
     }
 
     public String getAllergies() {
