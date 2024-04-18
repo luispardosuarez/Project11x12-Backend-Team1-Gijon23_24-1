@@ -15,14 +15,14 @@ public class Price {
     private String service;
 
     @Column(name = "price")
-    private int price;
+    private long priceInCents;
 
     public Price() {
     }
 
-    public Price(String service, int price) {
+    public Price(String service, long priceInCents) {
         this.service = service;
-        this.price = price;
+        this.priceInCents = priceInCents;
     }
 
     public Long getId() {
@@ -41,11 +41,11 @@ public class Price {
         this.service = service;
     }
 
-    public int getPrice() {
-        return price;
+    public long getPriceInCents() {
+        return priceInCents;
     }
 
-    public void setPrice(int price) {
-        this.price = price;
+    public void setPriceInCents(long priceInCents) {
+        this.priceInCents = priceInCents;
     }
 }

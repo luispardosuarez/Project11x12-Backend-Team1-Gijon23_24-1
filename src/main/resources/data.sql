@@ -52,4 +52,6 @@ INSERT INTO inscriptions_participants (id_ins_part, inscription_id, participant_
 INSERT INTO inscriptions_participants (id_ins_part, inscription_id, participant_id, breakfast, snack, allergies, remarks, invoice) VALUES (2, 1, 1, FALSE, FALSE, 'Huevo', 'asmático, lleva inhalador', 0);
 
  -- Prices 
-INSERT INTO prices (id_price, service, price) VALUES (1, 'Comida', 15);
+INSERT INTO prices (id_price, service, price) VALUES (1, 'Desayuno', 1250);
+INSERT INTO prices (id_price, service, price) VALUES (2, 'Comida', 2250);
+INSERT INTO prices (id_price, service, price) VALUES (3, 'Merienda', 750);
