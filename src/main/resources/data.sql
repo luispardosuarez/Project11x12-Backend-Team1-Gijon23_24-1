@@ -7,16 +7,16 @@ INSERT INTO users (id_user, username, password) VALUES (1, 'admin@gijon11x12.com
 INSERT roles_users (role_id, user_id) VALUES (1, 1);
 
 -- Scholarship
-INSERT INTO scholarships (id_scholarship, dni) VALUES (default, '10000000X');
-INSERT INTO scholarships (id_scholarship, dni) VALUES (default, '20000000Y');
-INSERT INTO scholarships (id_scholarship, dni) VALUES (default, '30000000Z');
-INSERT INTO scholarships (id_scholarship, dni) VALUES (default, '40000000J');
-INSERT INTO scholarships (id_scholarship, dni) VALUES (default, '50000000K');
-INSERT INTO scholarships (id_scholarship, dni) VALUES (default, '60000000V');
-INSERT INTO scholarships (id_scholarship, dni) VALUES (default, '70000000H');
-INSERT INTO scholarships (id_scholarship, dni) VALUES (default, '80000000T');
-INSERT INTO scholarships (id_scholarship, dni) VALUES (default, '90000000R');
-INSERT INTO scholarships (id_scholarship, dni) VALUES (default, '11000000W');
+INSERT INTO scholarships (id_scholarship, dni, start_date, end_date) VALUES (default, '10000000X','2024-12-22', '2025-01-09');
+INSERT INTO scholarships (id_scholarship, dni, start_date, end_date) VALUES (default, '10000000X','2024-12-22', '2025-01-09');
+INSERT INTO scholarships (id_scholarship, dni, start_date, end_date) VALUES (default, '10000000X','2024-12-22', '2025-01-09');
+INSERT INTO scholarships (id_scholarship, dni, start_date, end_date) VALUES (default, '10000000X','2024-12-22', '2025-01-09');
+INSERT INTO scholarships (id_scholarship, dni, start_date, end_date) VALUES (default, '10000000X','2024-12-22', '2025-01-09');
+INSERT INTO scholarships (id_scholarship, dni, start_date, end_date) VALUES (default, '10000000X','2024-12-22', '2025-01-09');
+INSERT INTO scholarships (id_scholarship, dni, start_date, end_date) VALUES (default, '10000000X','2024-12-22', '2025-01-09');
+INSERT INTO scholarships (id_scholarship, dni, start_date, end_date) VALUES (default, '10000000X','2024-12-22', '2025-01-09');
+INSERT INTO scholarships (id_scholarship, dni, start_date, end_date) VALUES (default, '10000000X','2024-12-22', '2025-01-09');
+INSERT INTO scholarships (id_scholarship, dni, start_date, end_date) VALUES (default, '10000000X','2024-12-22', '2025-01-09');
 
 
 -- Participants
@@ -52,4 +52,4 @@ INSERT INTO inscriptions_participants (id_ins_part, inscription_id, participant_
 INSERT INTO inscriptions_participants (id_ins_part, inscription_id, participant_id, breakfast, snack, allergies, remarks, invoice) VALUES (2, 1, 1, FALSE, FALSE, 'Huevo', 'asmático, lleva inhalador', 0);
 
  -- Prices 
-INSERT INTO prices (id_price, service, price) VALUES (1, comida, 15);
+INSERT INTO prices (id_price, service, price) VALUES (1, 'Comida', 15);
