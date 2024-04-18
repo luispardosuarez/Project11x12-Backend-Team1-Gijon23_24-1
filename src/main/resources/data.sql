@@ -49,5 +49,7 @@ INSERT INTO inscriptions (id_inscription, school_id, inscription_date, week_id) 
  
   -- InscriptionParticipant
 INSERT INTO inscriptions_participants (id_ins_part, inscription_id, participant_id, breakfast, snack, allergies, remarks, invoice) VALUES (1, 1, 1, TRUE, TRUE, 'Aspirina', 'Sin observaciones', 50); 
-
 INSERT INTO inscriptions_participants (id_ins_part, inscription_id, participant_id, breakfast, snack, allergies, remarks, invoice) VALUES (2, 1, 1, FALSE, FALSE, 'Huevo', 'asmático, lleva inhalador', 0);
+
+ -- Prices 
+INSERT INTO prices (id_price, service, price) VALUES (1, comida, 15);
