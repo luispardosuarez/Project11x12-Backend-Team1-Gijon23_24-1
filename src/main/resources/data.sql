@@ -50,3 +50,6 @@ INSERT INTO inscriptions (id_inscription, school_id, inscription_date, week_id) 
 INSERT INTO inscriptions_participants (id_ins_part, inscription_id, participant_id, breakfast, snack, allergies, remarks, invoice) VALUES (1, 1, 1, TRUE, TRUE, 'Aspirina', 'Sin observaciones', 50); 
 
 INSERT INTO inscriptions_participants (id_ins_part, inscription_id, participant_id, breakfast, snack, allergies, remarks, invoice) VALUES (2, 1, 1, FALSE, FALSE, 'Huevo', 'asmático, lleva inhalador', 0);
+
+-- Invoices
+INSERT invoices (id_invoice, total, discount, final_total, pay) VALUES (1, 50, 0, 50, 50);

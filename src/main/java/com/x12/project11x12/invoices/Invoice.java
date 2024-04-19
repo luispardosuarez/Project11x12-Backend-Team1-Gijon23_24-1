@@ -1,4 +1,5 @@
-package com.x12.project11x12.invoice;
+package com.x12.project11x12.invoices;
+
 
 import com.x12.project11x12.inscriptionsParticipants.InscriptionParticipant;
 
@@ -13,15 +14,11 @@ import jakarta.persistence.Table;
 
 @Entity
 @Table (name = "invoices")
-public class Invoices {
+public class Invoice {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column (name = "id_invoice")
     private Long id;
-
-    @OneToMany
-    @JoinColumn(name = "id_ins_part")
-    private InscriptionParticipant inscriptionParticipant;
 
 
     private Double total;
@@ -29,10 +26,14 @@ public class Invoices {
     private Double final_total;
     private Double pay;
 
-    public Invoices(){
+    @OneToMany
+    @JoinColumn(name = "id_ins_part")
+    private InscriptionParticipant inscriptionParticipant;
+
+    public Invoice(){
     }
 
-    public Invoices(Long id, InscriptionParticipant inscriptionParticipant, Double total, Double discount,
+    public Invoice(Long id, InscriptionParticipant inscriptionParticipant, Double total, Double discount,
             Double final_total, Double pay) {
         this.id = id;
         this.inscriptionParticipant = inscriptionParticipant;
@@ -89,7 +90,9 @@ public class Invoices {
     public void setPay(Double pay) {
         this.pay = pay;
     }
-    
+
+
+
 
 
 
