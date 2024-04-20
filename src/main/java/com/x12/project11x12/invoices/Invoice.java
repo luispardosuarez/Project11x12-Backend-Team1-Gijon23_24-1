@@ -1,6 +1,9 @@
 package com.x12.project11x12.invoices;
 
 
+import java.util.Set;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.x12.project11x12.inscriptionsParticipants.InscriptionParticipant;
 
 import jakarta.persistence.Column;
@@ -8,7 +11,6 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 
@@ -20,23 +22,21 @@ public class Invoice {
     @Column (name = "id_invoice")
     private Long id;
 
+    @JsonIgnore
+    @OneToMany(mappedBy = "invoice")
+    private Set<InscriptionParticipant> inscriptionParticipant;
 
     private Double total;
     private Double discount;
     private Double final_total;
     private Double pay;
 
-    @OneToMany
-    @JoinColumn(name = "id_ins_part")
-    private InscriptionParticipant inscriptionParticipant;
-
     public Invoice(){
     }
 
-    public Invoice(Long id, InscriptionParticipant inscriptionParticipant, Double total, Double discount,
+    public Invoice(Long id, Double total, Double discount,
             Double final_total, Double pay) {
         this.id = id;
-        this.inscriptionParticipant = inscriptionParticipant;
         this.total = total;
         this.discount = discount;
         this.final_total = final_total;
@@ -51,11 +51,11 @@ public class Invoice {
         this.id = id;
     }
 
-    public InscriptionParticipant getInscriptionParticipant() {
+    public Set<InscriptionParticipant> getInscriptionParticipant() {
         return inscriptionParticipant;
     }
 
-    public void setInscriptionParticipant(InscriptionParticipant inscriptionParticipant) {
+    public void setInscriptionParticipant(Set<InscriptionParticipant> inscriptionParticipant) {
         this.inscriptionParticipant = inscriptionParticipant;
     }
 
