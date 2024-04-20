@@ -36,7 +36,6 @@ public class SecurityConfiguration {
             this.jpaUserDetailsService = jpaUserDetailsService;
     }
 
-
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
 
@@ -47,7 +46,11 @@ public class SecurityConfiguration {
                 .logout(out -> out
                         .logoutUrl(endpoint + "/logout")
                         .deleteCookies("JSESSIONID"))
-                .authorizeHttpRequests(auth -> auth
+                .authorizeHttpRequests(auth -> auth                   
+                
+                // cambiar Profile a .hasAnyRole("ADMIN","USER") o sólo .hasRole("USER"):
+                // cambiar las rutas de a .hasRole("ADMIN")  
+
                         .requestMatchers(HttpMethod.GET, endpoint + "/login").hasAnyRole("USER","ADMIN") 
                         .requestMatchers(HttpMethod.POST, endpoint + "/register").permitAll()    
                         .requestMatchers(HttpMethod.GET, endpoint + "/scholarship").permitAll()
@@ -58,11 +61,14 @@ public class SecurityConfiguration {
                         .requestMatchers(HttpMethod.POST, endpoint + "/profile").permitAll()
                         .requestMatchers(HttpMethod.GET, endpoint + "/camps").permitAll()
                         .requestMatchers(HttpMethod.POST, endpoint + "/camps").permitAll()
+                        .requestMatchers(HttpMethod.GET, endpoint + "/images/**").permitAll()
+                        .requestMatchers(HttpMethod.POST, endpoint + "/images/**").hasRole("ADMIN") 
                         .requestMatchers(HttpMethod.GET, endpoint + "/participants").permitAll()
                         .requestMatchers(HttpMethod.POST, endpoint + "/participants").permitAll()
                         .requestMatchers(HttpMethod.PUT, endpoint + "/participants/**").permitAll() 
                         .requestMatchers(HttpMethod.DELETE, endpoint + "/participants/**").permitAll()                   
-                        .requestMatchers(HttpMethod.GET, endpoint + "/inscriptions").hasRole("ADMIN")
+                        .requestMatchers(HttpMethod.GET, endpoint + "/inscriptions").permitAll()                                          
+                        .requestMatchers(HttpMethod.GET, endpoint + "/inscriptionparticipant").permitAll()
                         .requestMatchers(HttpMethod.GET, endpoint + "/schools").permitAll()
                         .requestMatchers(HttpMethod.POST, endpoint + "/schools").permitAll()
                         .requestMatchers(HttpMethod.PUT, endpoint + "/schools/**").permitAll()
@@ -79,7 +85,7 @@ public class SecurityConfiguration {
                         .requestMatchers(HttpMethod.POST, endpoint + "/discounts").permitAll()
                         .requestMatchers(HttpMethod.PUT, endpoint + "/discounts/**").permitAll()
                         .requestMatchers(HttpMethod.DELETE, endpoint + "/discounts/**").permitAll()
-                        .requestMatchers(HttpMethod.GET, endpoint + "/campweeks").permitAll()
+                        .requestMatchers(HttpMethod.GET, endpoint + "/campweeks").permitAll()                                             
                         .anyRequest().authenticated())                
                 .userDetailsService(jpaUserDetailsService)
                 .httpBasic(basic -> basic.authenticationEntryPoint(CustomAuthenticationEntryPoint))
@@ -100,9 +106,18 @@ public class SecurityConfiguration {
         configuration.setAllowedHeaders(Arrays.asList("Content-Type", "Authorization"));
         UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
         source.registerCorsConfiguration("/**", configuration);
+
+        // Configuración específica para /images para Front
+        CorsConfiguration imageConfiguration = new CorsConfiguration();
+        imageConfiguration.setAllowCredentials(true);
+        imageConfiguration.setAllowedOrigins(Arrays.asList("http://localhost:5173", "http://localhost:8080", "https://api-gijon11x12.factoriaf5asturias.org/"));
+        imageConfiguration.setAllowedMethods(Arrays.asList("GET", "POST"));
+        imageConfiguration.setAllowedHeaders(Arrays.asList("Content-Type", "Authorization"));
+        source.registerCorsConfiguration("/images/**", imageConfiguration);
+
         return source;
     }
-    
+
     @Bean
     public BCryptPasswordEncoder passwordEncoder() {
         return new BCryptPasswordEncoder();
