@@ -28,9 +28,9 @@ VALUES (1, 'Casiano', 'Chapas', '98765432B', 'Tontorron', '33321', 'Sama', 'Lang
 INSERT INTO profiles (id, dni, profile_name, profile_surname, tlf1, tlf2) VALUES (1, '12345678A', 'Juan', 'Perez', '912345678', '987654321');
 
 -- Camps
-INSERT INTO camps (id_camp, camp_name, start_date, end_date, schedule, description, img, numdays) VALUES (1, 'Campamento de Navidad', '2024-12-22', '2025-01-09', '', 'Descripción', '', '5');
-INSERT INTO camps (id_camp, camp_name, start_date, end_date, schedule, description, img, numdays) VALUES (2, 'Campamento de Semana Santa', '2024-03-25', '2024-04-01', '', 'Descripción', '', '5');
-INSERT INTO camps (id_camp, camp_name, start_date, end_date, schedule, description, img, numdays) VALUES (3, 'Campamento de Verano', '2024-06-24', '2024-08-30', '', 'Descripción', '', '5');
+INSERT INTO camps (id_camp, camp_name, start_date, end_date, schedule, description, img, numdays, price) VALUES (1, 'Campamento de Navidad', '2024-12-22', '2025-01-09', '', 'Descripción', '', '5', '30');
+INSERT INTO camps (id_camp, camp_name, start_date, end_date, schedule, description, img, numdays, price) VALUES (2, 'Campamento de Semana Santa', '2024-03-25', '2024-04-01', '', 'Descripción', '', '5', '30');
+INSERT INTO camps (id_camp, camp_name, start_date, end_date, schedule, description, img, numdays, price) VALUES (3, 'Campamento de Verano', '2024-06-24', '2024-08-30', '', 'Descripción', '', '5', '30');
 
 
 -- Schools

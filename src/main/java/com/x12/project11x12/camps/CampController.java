@@ -51,6 +51,7 @@ public class CampController {
     camp.setDescription(campDetails.getDescription());
     camp.setImg(campDetails.getImg());
     camp.setNumdays(campDetails.getNumdays());
+    camp.setPrice(campDetails.getPrice());
     Camp updateCamp = campService.saveCamp(camp);
     return ResponseEntity.ok(updateCamp);
   }

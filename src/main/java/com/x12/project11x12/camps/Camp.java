@@ -27,12 +27,13 @@ public class Camp {
 
   private String img;
   private Integer numdays;
+  private Integer price;
 
   public Camp(){
   }
 
   public Camp(Long id, String camp_name, Date start_date, Date end_date, String schedule, String description,
-      String img, Integer numdays) {
+      String img, Integer numdays, Integer price) {
     this.id = id;
     this.camp_name = camp_name;
     this.start_date = start_date;
@@ -41,6 +42,7 @@ public class Camp {
     this.description = description;
     this.img = img;
     this.numdays = numdays;
+    this.price = price;
   }
 
 
@@ -106,6 +108,14 @@ public class Camp {
 
   public void setNumdays(Integer numdays) {
     this.numdays = numdays;
+  }
+
+  public Integer getPrice() {
+    return price;
+  }
+
+  public void setPrice(Integer price) {
+    this.price = price;
   }
 
 
