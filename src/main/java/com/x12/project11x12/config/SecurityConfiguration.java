@@ -109,14 +109,6 @@ public class SecurityConfiguration {
         UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
         source.registerCorsConfiguration("/**", configuration);
 
-        // Configuración específica para /images para Front
-        CorsConfiguration imageConfiguration = new CorsConfiguration();
-        imageConfiguration.setAllowCredentials(true);
-        imageConfiguration.setAllowedOrigins(Arrays.asList("http://localhost:5173", "http://localhost:8080", "https://api-gijon11x12.factoriaf5asturias.org/"));
-        imageConfiguration.setAllowedMethods(Arrays.asList("GET", "POST"));
-        imageConfiguration.setAllowedHeaders(Arrays.asList("Content-Type", "Authorization"));
-        source.registerCorsConfiguration("/images/**", imageConfiguration);
-
         return source;
     }
 
