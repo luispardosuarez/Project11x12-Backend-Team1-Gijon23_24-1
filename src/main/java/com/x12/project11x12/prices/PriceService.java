@@ -29,7 +29,7 @@ public class PriceService {
             return null;
         }
         price.setService(updatedPrice.getService());
-        price.setPrice(updatedPrice.getPrice());
+        price.setPriceInCents(updatedPrice.getPriceInCents());
         return priceRepository.save(price);
     }
 
