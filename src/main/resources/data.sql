@@ -28,9 +28,15 @@ VALUES (1, 'Casiano', 'Chapas', '98765432B', 'Tontorron', '33321', 'Sama', 'Lang
 INSERT INTO profiles (id, dni, profile_name, profile_surname, tlf1, tlf2) VALUES (1, '12345678A', 'Juan', 'Perez', '912345678', '987654321');
 
 -- Camps
+<<<<<<< HEAD
+INSERT INTO camps (id_camp, camp_name, start_date, end_date, schedule, description, img, numdays) VALUES (1, 'Campamento de Navidad', '2024-12-22', '2025-01-09', '', 'Descripción', '/images/Navidad.jpg', '5');
+INSERT INTO camps (id_camp, camp_name, start_date, end_date, schedule, description, img, numdays) VALUES (2, 'Campamento de Semana Santa', '2024-03-25', '2024-04-01', '', 'Descripción', '/images/SemanaSanta.jpg', '5');
+INSERT INTO camps (id_camp, camp_name, start_date, end_date, schedule, description, img, numdays) VALUES (3, 'Campamento de Verano', '2024-06-24', '2024-08-30', '', 'Descripción', '/images/Verano.jpg', '5');
+=======
 INSERT INTO camps (id_camp, camp_name, start_date, end_date, schedule, description, img, numdays, price) VALUES (1, 'Campamento de Navidad', '2024-12-22', '2025-01-09', '', 'Descripción', '', '5', '30');
 INSERT INTO camps (id_camp, camp_name, start_date, end_date, schedule, description, img, numdays, price) VALUES (2, 'Campamento de Semana Santa', '2024-03-25', '2024-04-01', '', 'Descripción', '', '5', '30');
 INSERT INTO camps (id_camp, camp_name, start_date, end_date, schedule, description, img, numdays, price) VALUES (3, 'Campamento de Verano', '2024-06-24', '2024-08-30', '', 'Descripción', '', '5', '30');
+>>>>>>> 3e75ceac9dff393974ce320a4a3bd931c5803daf
 
 
 -- Schools
@@ -47,7 +53,7 @@ INSERT INTO camp_weeks (id_week, start_date, end_date, camp_id) VALUES (3, '2024
 INSERT INTO inscriptions (id_inscription, school_id, inscription_date, week_id) VALUES (1, 1, '2024/04/16', 3);
 INSERT INTO inscriptions (id_inscription, school_id, inscription_date, week_id) VALUES (2, 2, '2024/04/12', 2);
  
-  -- InscriptionParticipant
+ -- InscriptionParticipant
 INSERT INTO inscriptions_participants (id_ins_part, inscription_id, participant_id, breakfast, snack, allergies, remarks, invoice) VALUES (1, 1, 1, TRUE, TRUE, 'Aspirina', 'Sin observaciones', 50); 
 INSERT INTO inscriptions_participants (id_ins_part, inscription_id, participant_id, breakfast, snack, allergies, remarks, invoice) VALUES (2, 1, 1, FALSE, FALSE, 'Huevo', 'asmático, lleva inhalador', 0);
 
