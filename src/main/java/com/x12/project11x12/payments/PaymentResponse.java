@@ -18,7 +18,7 @@ public class PaymentResponse implements IPayment<PaymentResponse> {
         Long totalAmount = Calculator.calculateOrderAmount(payment.getItems()); // Obtener el monto total utilizando Calculator
 
         PaymentIntentCreateParams params = PaymentIntentCreateParams.builder()
-            .setAmount(totalAmount) // Establecer el monto total
+            .setAmount(totalAmount) 
             .setCurrency("eur")
             .setAutomaticPaymentMethods(
                 PaymentIntentCreateParams.AutomaticPaymentMethods
