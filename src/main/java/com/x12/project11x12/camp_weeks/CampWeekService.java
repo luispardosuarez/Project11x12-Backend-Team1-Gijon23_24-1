@@ -11,7 +11,7 @@ public class CampWeekService {
   @Autowired
   private CampWeekRepository campWeekRepository;
 
-  public List <CampWeek> gettAllCampWeeks(){
+  public List <CampWeek> getAllCampWeeks(){
     return campWeekRepository.findAll();
   }
 

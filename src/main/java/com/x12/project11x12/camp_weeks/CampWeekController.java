@@ -17,7 +17,7 @@ public class CampWeekController {
   private CampWeekService campWeekService;
   @GetMapping
   public ResponseEntity<List<CampWeek>> getAllCampWeek(){
-    List<CampWeek> campWeeks = campWeekService.gettAllCampWeeks();
+    List<CampWeek> campWeeks = campWeekService.getAllCampWeeks();
     return ResponseEntity.ok(campWeeks);
   }
   @GetMapping("/{id}")

@@ -15,12 +15,12 @@ public class Discount {
     private String discountName;
 
     @Column(name = "discount_import")
-    private double discountImport;
+    private long discountImport;
 
     public Discount() {
     }
 
-    public Discount(String discountName, double discountImport) {
+    public Discount(String discountName, long discountImport) { 
         this.discountName = discountName;
         this.discountImport = discountImport;
     }
@@ -41,11 +41,11 @@ public class Discount {
         this.discountName = discountName;
     }
 
-    public double getDiscountImport() {
+    public long getDiscountImport() {
         return discountImport;
     }
 
-    public void setDiscountImport(double discountImport) {
+    public void setDiscountImport(long discountImport) {
         this.discountImport = discountImport;
     }
 }
