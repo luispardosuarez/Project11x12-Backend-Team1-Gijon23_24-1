@@ -15,8 +15,8 @@ INSERT INTO scholarships (id_scholarship, dni, start_date, end_date) VALUES (def
 INSERT INTO scholarships (id_scholarship, dni, start_date, end_date) VALUES (default, '11555060N','2024-12-22', '2025-01-09');
 INSERT INTO scholarships (id_scholarship, dni, start_date, end_date) VALUES (default, '23567009Q','2024-12-22', '2025-01-09');
 INSERT INTO scholarships (id_scholarship, dni, start_date, end_date) VALUES (default, '10660500M','2024-12-22', '2025-01-09');
-INSERT INTO scholarships (id_scholarship, dni, start_date, end_date) VALUES (default, '410030050L','2024-12-22', '2025-01-09');
-INSERT INTO scholarships (id_scholarship, dni, start_date, end_date) VALUES (default, '100691080S','2024-12-22', '2025-01-09');
+INSERT INTO scholarships (id_scholarship, dni, start_date, end_date) VALUES (default, '41003005L','2024-12-22', '2025-01-09');
+INSERT INTO scholarships (id_scholarship, dni, start_date, end_date) VALUES (default, '10069108S','2024-12-22', '2025-01-09');
 
 
 -- Participants
