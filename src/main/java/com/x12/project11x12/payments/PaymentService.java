@@ -4,6 +4,7 @@ import org.springframework.stereotype.Service;
 
 import com.stripe.exception.StripeException;
 import com.x12.project11x12.config.payments.stripe.StripeConfiguration;
+import com.x12.project11x12.facades.payments.PaymentFacade;
 
 @Service
 public class PaymentService {
@@ -16,5 +17,6 @@ public class PaymentService {
         PaymentResponse response = paymentFacade.createPaymentIntent("stripe", payment);
 
         return response;
+    }
     
 }
