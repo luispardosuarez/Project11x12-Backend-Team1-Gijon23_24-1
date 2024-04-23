@@ -7,16 +7,16 @@ INSERT INTO users (id_user, username, password) VALUES (1, 'admin@gijon11x12.com
 INSERT roles_users (role_id, user_id) VALUES (1, 1);
 
 -- Scholarship
+INSERT INTO scholarships (id_scholarship, dni, start_date, end_date) VALUES (default, '10000067X','2024-12-22', '2025-01-09');
+INSERT INTO scholarships (id_scholarship, dni, start_date, end_date) VALUES (default, '11003445P','2024-12-22', '2025-01-09');
+INSERT INTO scholarships (id_scholarship, dni, start_date, end_date) VALUES (default, '35000780A','2024-12-22', '2025-01-09');
+INSERT INTO scholarships (id_scholarship, dni, start_date, end_date) VALUES (default, '09354006O','2024-12-22', '2025-01-09');
 INSERT INTO scholarships (id_scholarship, dni, start_date, end_date) VALUES (default, '10000000X','2024-12-22', '2025-01-09');
-INSERT INTO scholarships (id_scholarship, dni, start_date, end_date) VALUES (default, '10000000X','2024-12-22', '2025-01-09');
-INSERT INTO scholarships (id_scholarship, dni, start_date, end_date) VALUES (default, '10000000X','2024-12-22', '2025-01-09');
-INSERT INTO scholarships (id_scholarship, dni, start_date, end_date) VALUES (default, '10000000X','2024-12-22', '2025-01-09');
-INSERT INTO scholarships (id_scholarship, dni, start_date, end_date) VALUES (default, '10000000X','2024-12-22', '2025-01-09');
-INSERT INTO scholarships (id_scholarship, dni, start_date, end_date) VALUES (default, '10000000X','2024-12-22', '2025-01-09');
-INSERT INTO scholarships (id_scholarship, dni, start_date, end_date) VALUES (default, '10000000X','2024-12-22', '2025-01-09');
-INSERT INTO scholarships (id_scholarship, dni, start_date, end_date) VALUES (default, '10000000X','2024-12-22', '2025-01-09');
-INSERT INTO scholarships (id_scholarship, dni, start_date, end_date) VALUES (default, '10000000X','2024-12-22', '2025-01-09');
-INSERT INTO scholarships (id_scholarship, dni, start_date, end_date) VALUES (default, '10000000X','2024-12-22', '2025-01-09');
+INSERT INTO scholarships (id_scholarship, dni, start_date, end_date) VALUES (default, '11555060N','2024-12-22', '2025-01-09');
+INSERT INTO scholarships (id_scholarship, dni, start_date, end_date) VALUES (default, '23567009Q','2024-12-22', '2025-01-09');
+INSERT INTO scholarships (id_scholarship, dni, start_date, end_date) VALUES (default, '10660500M','2024-12-22', '2025-01-09');
+INSERT INTO scholarships (id_scholarship, dni, start_date, end_date) VALUES (default, '410030050L','2024-12-22', '2025-01-09');
+INSERT INTO scholarships (id_scholarship, dni, start_date, end_date) VALUES (default, '100691080S','2024-12-22', '2025-01-09');
 
 
 -- Participants
@@ -34,9 +34,22 @@ INSERT INTO camps (id_camp, camp_name, start_date, end_date, schedule, descripti
 
 
 -- Schools
-INSERT INTO schools (id_schools, school_name) VALUES (1, 'Colegio La Escuelona');
-INSERT INTO schools (id_schools, school_name) VALUES (2, 'Colegio Nicanor Piñole');
-INSERT INTO schools (id_schools, school_name) VALUES (3, 'Colegio Río Piles');
+INSERT INTO schools (id_schools, school_name) VALUES (1, 'Colegio Público Alfonso Camín');
+INSERT INTO schools (id_schools, school_name) VALUES (2, 'Colegio Público Asturias');
+INSERT INTO schools (id_schools, school_name) VALUES (3, 'Colegio Público Begoña');
+INSERT INTO schools (id_schools, school_name) VALUES (4, 'Colegio Público Clarín');
+INSERT INTO schools (id_schools, school_name) VALUES (5, 'Colegio Público El Llano');
+INSERT INTO schools (id_schools, school_name) VALUES (6, 'Colegio Público Federico García Lorca');
+INSERT INTO schools (id_schools, school_name) VALUES (7, 'Colegio Público Gaspar Melchor de Jovellanos');
+INSERT INTO schools (id_schools, school_name) VALUES (8, 'Colegio Público Jacinto Benavente');
+INSERT INTO schools (id_schools, school_name) VALUES (9, 'Colegio Público La Escuelona');
+INSERT INTO schools (id_schools, school_name) VALUES (10, 'Colegio Público Montevil');
+INSERT INTO schools (id_schools, school_name) VALUES (11, 'Colegio Público Montiana');
+INSERT INTO schools (id_schools, school_name) VALUES (12, 'Colegio Público Nicanor Piñole');
+INSERT INTO schools (id_schools, school_name) VALUES (13, 'Colegio Público Noega');
+INSERT INTO schools (id_schools, school_name) VALUES (14, 'Colegio Público Rey Pelayo');
+INSERT INTO schools (id_schools, school_name) VALUES (15, 'Colegio Río Piles');
+
 
 -- Camp_Weeks
 INSERT INTO camp_weeks (id_week, start_date, end_date, camp_id) VALUES (1, '2024-12-22', '2025-01-09', 1);
