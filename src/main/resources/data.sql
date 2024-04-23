@@ -20,9 +20,9 @@ INSERT INTO scholarships (id_scholarship, dni, start_date, end_date) VALUES (def
 
 
 -- Participants
-INSERT INTO participants (id_participant, participant_name, participant_surname, DNI, street, PC, city, municipality, mail, birth_date, allergies, remarks) 
-VALUES (1, 'Casiano', 'Chapas', '98765432B', 'Tontorron', '33321', 'Sama', 'Langreo', 'casiano@gijon11x12.com', '1989-05-15', 'Aspirina', 'Sin observaciones');
-
+INSERT INTO participants (id_participant, participant_name, participant_surname, DNI, street, PC, city, municipality, mail, birth_date, allergies, remarks) VALUES (1, 'Pablo', 'López', '18765432B', 'Asturias', '33202', 'Gijón', 'Gijón', 'plopez@gijon11x12.com', '2019-05-15', 'Aspirina', '');
+INSERT INTO participants (id_participant, participant_name, participant_surname, DNI, street, PC, city, municipality, mail, birth_date, allergies, remarks) VALUES (2, 'Ana', 'Sánchez', '09855432S', 'Peña Mea', '33211', 'Tremañes', 'Gijón', 'anaschz@gijon11x12.com', '2020-07-21', 'Cacahuetes', 'Medicación en la mochila para usar en caso de intoxicación accidental');
+INSERT INTO participants (id_participant, participant_name, participant_surname, DNI, street, PC, city, municipality, mail, birth_date, allergies, remarks) VALUES (3, 'María', 'Díaz', '35467339H', 'Galicia', '33211', 'Gijón', 'Gijón', 'maria19@gijon11x12.com', '2020-06-19', '', '');
  
 -- Profile
 INSERT INTO profiles (id, dni, profile_name, profile_surname, tlf1, tlf2) VALUES (1, '12345678A', 'Juan', 'Perez', '912345678', '987654321');
@@ -48,7 +48,7 @@ INSERT INTO schools (id_schools, school_name) VALUES (11, 'Colegio Público Mont
 INSERT INTO schools (id_schools, school_name) VALUES (12, 'Colegio Público Nicanor Piñole');
 INSERT INTO schools (id_schools, school_name) VALUES (13, 'Colegio Público Noega');
 INSERT INTO schools (id_schools, school_name) VALUES (14, 'Colegio Público Rey Pelayo');
-INSERT INTO schools (id_schools, school_name) VALUES (15, 'Colegio Río Piles');
+INSERT INTO schools (id_schools, school_name) VALUES (15, 'Colegio Público Río Piles');
 
 
 -- Camp_Weeks
