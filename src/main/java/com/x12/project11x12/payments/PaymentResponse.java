@@ -19,4 +19,3 @@ public class PaymentResponse {
         this.clientSecret = clientSecret;
     }
 }
-

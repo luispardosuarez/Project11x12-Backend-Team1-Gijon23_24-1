@@ -2,7 +2,6 @@ package com.x12.project11x12.payments;
 
 import org.springframework.stereotype.Service;
 
-import com.stripe.exception.StripeException;
 import com.x12.project11x12.config.payments.stripe.StripeConfiguration;
 import com.x12.project11x12.facades.payments.PaymentFacade;
 
@@ -10,13 +9,16 @@ import com.x12.project11x12.facades.payments.PaymentFacade;
 public class PaymentService {
 
     StripeConfiguration stripeConfig;
-    PaymentFacade paymentFacade;
 
-    public PaymentResponse createPaymentIntent(String paymentProvider, PaymentRequest payment) throws StripeException {
+    private final PaymentFacade paymentFacade;
 
-        PaymentResponse response = paymentFacade.createPaymentIntent("stripe", payment);
-
-        return response;
+    public PaymentService(PaymentFacade paymentFacade) {
+        this.paymentFacade = paymentFacade;
     }
-    
+
+    public PaymentResponse createPaymentIntent(String paymentProvider, PaymentRequest payment) throws Exception {
+
+        PaymentResponse response = paymentFacade.createPaymentIntent(paymentProvider, payment);
+        return response;
+    }        
 }

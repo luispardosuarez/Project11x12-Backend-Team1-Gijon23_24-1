@@ -1,30 +1,29 @@
 package com.x12.project11x12.payments;
 
-import java.util.Arrays;
-
 public class PaymentRequest {
 
-    PaymentItem [] items;
+    Long totalPrice; 
 
     public PaymentRequest() {
     }
 
-    public PaymentRequest(PaymentItem[] items) {
-        this.items = items;
+    public PaymentRequest(Long totalPrice) {
+        this.totalPrice = totalPrice;
     }
 
-    public PaymentItem[] getItems() {
-        return items;
+    public Long getTotalPrice() {
+        return totalPrice;
     }
 
-    public void setItems(PaymentItem[] items) {
-        this.items = items;
-    }
+    public void setTotalPrice(Long totalPrice) {
+        this.totalPrice = totalPrice;
+    }    
 
     @Override
     public String toString() {
         return "PaymentRequest{" +
-                "items=" + Arrays.toString(items) +
+                "totalPrice=" + totalPrice +
                 '}';
-    }    
+    }
+
 }

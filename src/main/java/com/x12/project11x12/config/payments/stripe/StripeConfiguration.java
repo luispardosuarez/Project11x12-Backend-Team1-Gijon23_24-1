@@ -4,43 +4,26 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
-/* @Configuration
-public class StripeConfiguration {
-    @Value(value = "${stripe-secret-key}")
-    private String secretKey;
+import com.x12.project11x12.facades.payments.PaymentFacade;
+import com.x12.project11x12.facades.payments.StripePayment;
 
-    public String getSecretKey() {
-        return secretKey;
-    }    
-} */
-
-/* public class StripeConfiguration {
-    private String secretKey;
-
-    public String getSecretKey() {
-        return secretKey;
-    }
-
-    @Value("${stripe-secret-key}")
-    public void setSecretKey(String secretKey) {
-        this.secretKey = secretKey;
-        
-    }
-} */
-
-// PRUEBA
 @Configuration
 public class StripeConfiguration {
 
-    @Value("${STRIPE_SECRET_KEY}")
+    @Value(value = "${stripe-secret-key}")
     private String secretKey;
-
-    @Bean
-    public String stripeSecretKey() {
+   
+    public String getSecretKey() {
         return secretKey;
     }
 
-    public String getSecretKey() {
-        return secretKey;
+    @Bean
+    public StripePayment stripePayment() {
+        return new StripePayment(this);
+    }
+
+    @Bean
+    public PaymentFacade paymentFacade() {
+        return new PaymentFacade(stripePayment());
     }
 }
