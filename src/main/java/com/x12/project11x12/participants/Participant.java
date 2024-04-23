@@ -51,6 +51,9 @@ public class Participant {
     @Column(name = "remarks")
     private String remarks;
 
+    @Column(name = "profile_id")
+    private int profileId;
+
     @ManyToOne
     @JoinColumn(name = "id_profile")
     private Profile profile;
@@ -64,7 +67,7 @@ public class Participant {
 
     public Participant(Long id, String participantName, String participantSurname, String dni, String street, String pc,
             String city, String municipality, String mail, Date birthDate, String allergies, String remarks,
-            Profile profile, Set<InscriptionParticipant> inscriptionParticipant) {
+            Profile profile, int profileId, Set<InscriptionParticipant> inscriptionParticipant) {
         this.id = id;
         this.participantName = participantName;
         this.participantSurname = participantSurname;
@@ -78,6 +81,7 @@ public class Participant {
         this.allergies = allergies;
         this.remarks = remarks;
         this.profile = profile;
+        this.profileId = profileId;
         this.inscriptionParticipant = inscriptionParticipant;
     }
 
@@ -183,6 +187,14 @@ public class Participant {
 
     public void setProfile(Profile profile) {
         this.profile = profile;
+    }
+
+    public int getProfileId() {
+        return profileId;
+    }
+
+    public void setProfileId(int profileId) {
+        this.profileId = profileId;
     }
 
     public Set<InscriptionParticipant> getInscriptionParticipant() {
