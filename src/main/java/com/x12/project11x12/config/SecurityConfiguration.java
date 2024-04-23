@@ -47,47 +47,47 @@ public class SecurityConfiguration {
                         .logoutUrl(endpoint + "/logout")
                         .deleteCookies("JSESSIONID"))
                 .authorizeHttpRequests(auth -> auth                   
-                
-                // cambiar Profile a .hasAnyRole("ADMIN","USER") o sólo .hasRole("USER"):
-                // cambiar las rutas de a .hasRole("ADMIN")  
-
-                        .requestMatchers(HttpMethod.GET, endpoint + "/login").hasAnyRole("USER","ADMIN") 
-                        .requestMatchers(HttpMethod.POST, endpoint + "/register").permitAll()    
+                        .requestMatchers(HttpMethod.GET, endpoint + "/login").hasAnyRole("USER","ADMIN")
+                        .requestMatchers(HttpMethod.POST, endpoint + "/register").permitAll()
                         .requestMatchers(HttpMethod.GET, endpoint + "/scholarship").permitAll()
                         .requestMatchers(HttpMethod.POST, endpoint + "/scholarship").permitAll()
                         .requestMatchers(HttpMethod.PUT, endpoint + "/scholarship/**").permitAll()
                         .requestMatchers(HttpMethod.DELETE, endpoint + "/scholarship/**").hasRole("ADMIN")
                         .requestMatchers(HttpMethod.GET, endpoint + "/profile").permitAll()
-                        .requestMatchers(HttpMethod.POST, endpoint + "/profile").permitAll()
+                        .requestMatchers(HttpMethod.POST, endpoint + "/profile").hasRole("USER")
                         .requestMatchers(HttpMethod.GET, endpoint + "/camps").permitAll()
-                        .requestMatchers(HttpMethod.POST, endpoint + "/camps").permitAll()
+                        .requestMatchers(HttpMethod.POST + endpoint + "/camps").hasRole("ADMIN")
+                        .requestMatchers(HttpMethod.PUT + endpoint + "/camps").hasRole("ADMIN")
                         .requestMatchers(HttpMethod.GET, endpoint + "/images/**").permitAll()
-                        .requestMatchers(HttpMethod.POST, endpoint + "/images/**").hasRole("ADMIN") 
-                        .requestMatchers(HttpMethod.GET, endpoint + "/participants").permitAll()
+                        .requestMatchers(HttpMethod.POST, endpoint + "/images/**").hasRole("ADMIN")
+                        .requestMatchers(HttpMethod.GET,  endpoint + "/participants").permitAll()
                         .requestMatchers(HttpMethod.POST, endpoint + "/participants").permitAll()
-                        .requestMatchers(HttpMethod.PUT, endpoint + "/participants/**").permitAll() 
-                        .requestMatchers(HttpMethod.DELETE, endpoint + "/participants/**").permitAll()                   
-                        .requestMatchers(HttpMethod.GET, endpoint + "/inscriptions").permitAll()                                          
-                        .requestMatchers(HttpMethod.GET, endpoint + "/inscriptionparticipant").permitAll()
+                        .requestMatchers(HttpMethod.PUT, endpoint + "/participants/**").permitAll()
+                        .requestMatchers(HttpMethod.DELETE, endpoint + "/participants/**").hasAnyRole("USER","ADMIN")
+                        .requestMatchers(HttpMethod.GET, endpoint + "/inscriptions").hasRole("ADMIN")
+                        .requestMatchers(HttpMethod.GET, endpoint + "/inscriptionparticipant").hasRole("ADMIN")
                         .requestMatchers(HttpMethod.GET, endpoint + "/schools").permitAll()
-                        .requestMatchers(HttpMethod.POST, endpoint + "/schools").permitAll()
-                        .requestMatchers(HttpMethod.PUT, endpoint + "/schools/**").permitAll()
-                        .requestMatchers(HttpMethod.DELETE, endpoint + "/schools/**").permitAll()
+                        .requestMatchers(HttpMethod.POST, endpoint + "/schools").hasRole("ADMIN")
+                        .requestMatchers(HttpMethod.PUT, endpoint + "/schools/**").hasRole("ADMIN")
+                        .requestMatchers(HttpMethod.DELETE, endpoint + "/schools/**").hasRole("ADMIN")
                         .requestMatchers(HttpMethod.GET, endpoint + "/places").permitAll()
-                        .requestMatchers(HttpMethod.POST, endpoint + "/places").permitAll()
-                        .requestMatchers(HttpMethod.PUT, endpoint + "/places/**").permitAll()
-                        .requestMatchers(HttpMethod.DELETE, endpoint + "/places/**").permitAll()
+                        .requestMatchers(HttpMethod.POST, endpoint + "/places").hasRole("ADMIN")
+                        .requestMatchers(HttpMethod.PUT, endpoint + "/places/**").hasRole("ADMIN")
+                        .requestMatchers(HttpMethod.DELETE, endpoint + "/places/**").hasRole("ADMIN")
                         .requestMatchers(HttpMethod.GET, endpoint + "/prices").permitAll()
-                        .requestMatchers(HttpMethod.POST, endpoint + "/prices").permitAll()
-                        .requestMatchers(HttpMethod.PUT, endpoint + "/prices/**").permitAll()
-                        .requestMatchers(HttpMethod.DELETE, endpoint + "/prices/**").permitAll()
+                        .requestMatchers(HttpMethod.POST, endpoint + "/prices").hasRole("ADMIN")
+                        .requestMatchers(HttpMethod.PUT, endpoint + "/prices/**").hasRole("ADMIN")
+                        .requestMatchers(HttpMethod.DELETE, endpoint + "/prices/**").hasRole("ADMIN")
                         .requestMatchers(HttpMethod.GET, endpoint + "/discounts").permitAll()
-                        .requestMatchers(HttpMethod.POST, endpoint + "/discounts").permitAll()
-                        .requestMatchers(HttpMethod.PUT, endpoint + "/discounts/**").permitAll()
-                        .requestMatchers(HttpMethod.DELETE, endpoint + "/discounts/**").permitAll()
+                        .requestMatchers(HttpMethod.POST, endpoint + "/discounts").hasRole("ADMIN")
+                        .requestMatchers(HttpMethod.PUT, endpoint + "/discounts/**").hasRole("ADMIN")
+                        .requestMatchers(HttpMethod.DELETE, endpoint + "/discounts/**").hasRole("ADMIN")
                         .requestMatchers(HttpMethod.GET, endpoint + "/campweeks").permitAll()
-                        .requestMatchers(HttpMethod.GET, endpoint + "/invoices").permitAll()
-                        .requestMatchers(HttpMethod.POST, endpoint + "/invoices").permitAll()
+                        .requestMatchers(HttpMethod.POST, endpoint + "/campweeks").hasRole("ADMIN")
+                        .requestMatchers(HttpMethod.PUT, endpoint + "/campweeks").hasRole("ADMIN")
+                        .requestMatchers(HttpMethod.DELETE, endpoint + "/campweeks").hasRole("ADMIN")
+                        .requestMatchers(HttpMethod.GET, endpoint + "/invoices").hasAnyRole("USER","ADMIN")
+                        .requestMatchers(HttpMethod.POST, endpoint + "/invoices").hasRole("ADMIN")
                         .anyRequest().authenticated())                
                 .userDetailsService(jpaUserDetailsService)
                 .httpBasic(basic -> basic.authenticationEntryPoint(CustomAuthenticationEntryPoint))
@@ -108,14 +108,6 @@ public class SecurityConfiguration {
         configuration.setAllowedHeaders(Arrays.asList("Content-Type", "Authorization"));
         UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
         source.registerCorsConfiguration("/**", configuration);
-
-        // Configuración específica para /images para Front
-        CorsConfiguration imageConfiguration = new CorsConfiguration();
-        imageConfiguration.setAllowCredentials(true);
-        imageConfiguration.setAllowedOrigins(Arrays.asList("http://localhost:5173", "http://localhost:8080", "https://api-gijon11x12.factoriaf5asturias.org/"));
-        imageConfiguration.setAllowedMethods(Arrays.asList("GET", "POST"));
-        imageConfiguration.setAllowedHeaders(Arrays.asList("Content-Type", "Authorization"));
-        source.registerCorsConfiguration("/images/**", imageConfiguration);
 
         return source;
     }
