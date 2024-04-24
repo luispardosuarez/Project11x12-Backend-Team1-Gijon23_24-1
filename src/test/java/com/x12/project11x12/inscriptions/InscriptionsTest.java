@@ -12,7 +12,7 @@ import java.util.Optional;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-public class InscriptionsServiceTest {
+public class InscriptionsTest {
 
     private InscriptionsRepository inscriptionsRepository;
     private InscriptionsService inscriptionsService;
@@ -26,30 +26,30 @@ public class InscriptionsServiceTest {
 
     @Test
     public void testGetAllInscriptions() {
-        // Given
+        // Arrange
         List<Inscriptions> expected = new ArrayList<>();
         expected.add(new Inscriptions(1L, 1, new Date(), 3, null));
         expected.add(new Inscriptions(2L, 2, new Date(), 2, null));
         when(inscriptionsRepository.findAll()).thenReturn(expected);
 
-        // When
+        // Act    
         List<Inscriptions> actual = inscriptionsService.getAllInscriptions();
 
-        // Then
+        // Assert
         assertEquals(expected, actual);
     }
 
     @Test
     public void testGetInscriptionById() {
-        // Given
+        // Arrange
         Long id = 1L;
         Inscriptions expected = new Inscriptions(id, 1, new Date(), 3, null);
         when(inscriptionsRepository.findById(id)).thenReturn(Optional.of(expected));
 
-        // When
+        // Act
         Optional<Inscriptions> actual = inscriptionsService.getInscriptionById(id);
 
-        // Then
+        // Assert
         assertEquals(Optional.of(expected), actual);
     }
 }
