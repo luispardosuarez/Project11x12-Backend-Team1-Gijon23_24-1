@@ -10,8 +10,8 @@ import org.springframework.security.core.userdetails.UserDetails;
 import com.x12.project11x12.roles.Role;
 import com.x12.project11x12.users.User;
 
-public class SecurityUser implements UserDetails{
-        User user;
+public class SecurityUser implements UserDetails {
+    private User user;
 
     public SecurityUser(User user) {
         this.user = user;
@@ -28,7 +28,7 @@ public class SecurityUser implements UserDetails{
         }
         
         return authorities;
-    }    
+    }
 
     @Override
     public String getPassword() {
@@ -59,5 +59,8 @@ public class SecurityUser implements UserDetails{
     public boolean isEnabled() {
         return true;
     }
-}
 
+    public Long getId() {
+        return user.getId();
+    }
+}

@@ -12,20 +12,25 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.x12.project11x12.security.SecurityUser;
+
 @RestController
 @RequestMapping(path="${api-endpoint}")
-public class AuthController {
+public class AuthController {    
     
     @GetMapping(path="/login")
     public ResponseEntity<Map<String,String>> login() {
 
         SecurityContext contextHolder = SecurityContextHolder.getContext();
         Authentication auth = contextHolder.getAuthentication();
+        SecurityUser securityUser = (SecurityUser) auth.getPrincipal();
+        Long userId = securityUser.getId();
 
         Map<String,String> json = new HashMap<String,String>();
         json.put("message", "Logged");
         json.put("username", auth.getName());
         json.put("roles", auth.getAuthorities().iterator().next().toString());
+        json.put("id", String.valueOf(userId));
 
         return ResponseEntity.status(HttpStatus.ACCEPTED).body(json);
     }
