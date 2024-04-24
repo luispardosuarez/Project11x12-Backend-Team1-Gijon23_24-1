@@ -43,7 +43,7 @@ public class Participant {
     private String mail;
 
     @Column(name = "birth_date")
-    private LocalDateDate birthDate;
+    private LocalDate birthDate;
 
     @Column(name = "allergies")
     private String allergies;
