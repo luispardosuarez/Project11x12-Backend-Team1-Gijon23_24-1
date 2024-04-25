@@ -24,6 +24,7 @@ public class Camp {
 
   @Column(columnDefinition = "TEXT")
   private String description;
+  private String description2;
 
   private String img;
   private Integer numdays;
@@ -32,7 +33,8 @@ public class Camp {
   public Camp(){
   }
 
-  public Camp(Long id, String camp_name, Date start_date, Date end_date, String schedule, String description,
+
+  public Camp(Long id, String camp_name, Date start_date, Date end_date, String schedule, String description, String description2, 
       String img, Integer numdays, Integer price) {
     this.id = id;
     this.camp_name = camp_name;
@@ -40,6 +42,7 @@ public class Camp {
     this.end_date = end_date;
     this.schedule = schedule;
     this.description = description;
+    this.description2 = description2;
     this.img = img;
     this.numdays = numdays;
     this.price = price;
@@ -94,6 +97,14 @@ public class Camp {
     this.description = description;
   }
 
+  public String getDescription2() {
+    return description2;
+  }
+
+  public void setDescription2(String description2) {
+    this.description2 = description2;
+  }
+
   public String getImg() {
     return img;
   }
@@ -117,6 +128,7 @@ public class Camp {
   public void setPrice(Integer price) {
     this.price = price;
   }
+
 
 
 
