@@ -4,7 +4,7 @@ import java.util.Optional;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
-public interface ScholarshipRepositoty extends JpaRepository<Scholarship, Long> {
+public interface ScholarshipRepository extends JpaRepository<Scholarship, Long> {
     public Optional<Scholarship> findByDni(String scholarship);
     
 }

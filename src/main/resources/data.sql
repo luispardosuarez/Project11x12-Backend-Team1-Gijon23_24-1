@@ -28,14 +28,22 @@ INSERT INTO participants (id_participant, participant_name, participant_surname,
 INSERT INTO participants (id_participant, participant_name, participant_surname, DNI, street, PC, city, municipality, mail, birth_date, allergies, remarks, profile_id) VALUES (6, 'Marcos', 'Rodríguez', '15499939F', 'Peña Mea', '33211', 'Tremañes', 'Gijón', 'maroz13@gijon11x12.com', '2020-03-13', '', '', 4);
 
 
- 
 -- Profile
 INSERT INTO profiles (id, dni, profile_name, profile_surname, tlf1, tlf2) VALUES (1, '12345678A', 'Juan', 'Perez', '912345678', '987654321');
 
 -- Camps
-INSERT INTO camps (id_camp, camp_name, start_date, end_date, schedule, description, img, numdays, price) VALUES (1, 'Campamento de Navidad', '2024-12-22', '2025-01-09', '', 'Descripción', '/images/Navidad.jpg', '5', '30');
-INSERT INTO camps (id_camp, camp_name, start_date, end_date, schedule, description, img, numdays, price) VALUES (2, 'Campamento de Semana Santa', '2024-03-25', '2024-04-01', '', 'Descripción', '/images/SemanaSanta.jpg', '5', '30');
-INSERT INTO camps (id_camp, camp_name, start_date, end_date, schedule, description, img, numdays, price) VALUES (3, 'Campamento de Verano', '2024-06-24', '2024-08-30', '', 'Descripción', '/images/Verano.jpg', '5', '30');
+INSERT INTO camps (id_camp, camp_name, start_date, end_date, schedule, description, description2, img, numdays, price) VALUES (1, 'Navidad', '2024-12-22', '2025-01-09', 'De 09.00 h a 15.00 h', 'Campamento de Navidad disponible dentro del programa 11x12', 'Inscripción por semanas.<br>
+Servicio de 9 de la mañana a 6 de la tarde.<br>
+Atención temprana y desayuno desde las 7 y media de la mañana.<br>
+Comedor desde las 2 hasta las 4 de la tarde.<br>', '/images/Navidad.jpg', '5', '30');
+INSERT INTO camps (id_camp, camp_name, start_date, end_date, schedule, description, description2, img, numdays, price) VALUES (2, 'Semana Santa', '2024-03-25', '2024-04-01', 'De 09.00 h a 15.00 h', 'Campamento de Semana Santa disponible dentro del programa 11x12', 'Inscripción por semanas.<br>
+Servicio de 9 de la mañana a 6 de la tarde.<br>
+Atención temprana y desayuno desde las 7 y media de la mañana.<br>
+Comedor desde las 2 hasta las 4 de la tarde.<br>', '/images/SemanaSanta.jpg', '5', '30');
+INSERT INTO camps (id_camp, camp_name, start_date, end_date, schedule, description, description2, img, numdays, price) VALUES (3, 'Verano', '2024-06-24', '2024-08-30', 'De 09.00 h a 15.00 h', 'Campamento de Verano disponible dentro del programa 11x12', 'Inscripción por semanas.<br>
+Servicio de 9 de la mañana a 6 de la tarde.<br>
+Atención temprana y desayuno desde las 7 y media de la mañana.<br>
+Comedor desde las 2 hasta las 4 de la tarde.<br>', '/images/Verano.jpg', '5', '30');
 
 
 -- Schools

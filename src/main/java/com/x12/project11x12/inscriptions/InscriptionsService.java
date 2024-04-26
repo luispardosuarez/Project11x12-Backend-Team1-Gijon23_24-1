@@ -19,4 +19,8 @@ public class InscriptionsService {
     public Optional<Inscriptions> getInscriptionById(Long id) {
         return inscriptionsRepository.findById(id);
     }
+
+    public void setInscriptionsRepository(InscriptionsRepository inscriptionsRepository) {
+        this.inscriptionsRepository = inscriptionsRepository;
+    }
 }

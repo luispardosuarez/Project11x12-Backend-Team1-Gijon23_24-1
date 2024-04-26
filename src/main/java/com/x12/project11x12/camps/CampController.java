@@ -49,6 +49,7 @@ public class CampController {
     camp.setEnd_date(campDetails.getEnd_date());
     camp.setSchedule(campDetails.getSchedule());
     camp.setDescription(campDetails.getDescription());
+    camp.setDescription2(campDetails.getDescription2());
     camp.setImg(campDetails.getImg());
     camp.setNumdays(campDetails.getNumdays());
     camp.setPrice(campDetails.getPrice());
