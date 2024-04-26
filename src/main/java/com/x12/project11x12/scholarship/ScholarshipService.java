@@ -11,9 +11,9 @@ import com.x12.project11x12.interfaces.IGenericLimtedService;
 @Service
 public class ScholarshipService implements IGenericLimtedService<Scholarship>{
     
-    ScholarshipRepositoty repository;
+    ScholarshipRepository repository;
 
-    public ScholarshipService(ScholarshipRepositoty repository) {
+    public ScholarshipService(ScholarshipRepository repository) {
         this.repository = repository;
     }
 

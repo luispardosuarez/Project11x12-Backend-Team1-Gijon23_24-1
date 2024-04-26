@@ -6,7 +6,7 @@ import com.x12.project11x12.profiles.Profile;
 
 import jakarta.persistence.*;
 
-import java.util.Date;
+import java.time.LocalDate;
 import java.util.Set;
 
 @Entity
@@ -43,7 +43,7 @@ public class Participant {
     private String mail;
 
     @Column(name = "birth_date")
-    private Date birthDate;
+    private LocalDate birthDate;
 
     @Column(name = "allergies")
     private String allergies;
@@ -66,7 +66,7 @@ public class Participant {
     }
 
     public Participant(Long id, String participantName, String participantSurname, String dni, String street, String pc,
-            String city, String municipality, String mail, Date birthDate, String allergies, String remarks,
+            String city, String municipality, String mail, LocalDate birthDate, String allergies, String remarks,
             Profile profile, int profileId, Set<InscriptionParticipant> inscriptionParticipant) {
         this.id = id;
         this.participantName = participantName;
@@ -157,11 +157,11 @@ public class Participant {
         this.mail = mail;
     }
 
-    public Date getBirthDate() {
+    public LocalDate getBirthDate() {
         return birthDate;
     }
 
-    public void setBirthDate(Date birthDate) {
+    public void setBirthDate(LocalDate birthDate) {
         this.birthDate = birthDate;
     }
 
